@@ -241,7 +241,7 @@ html {
 
 body {
   background-color: #590505;
-  background-image: url(../../images/272832-wallpaper-movie-theater-wallpaper-on-wallpaperp-movie.png);
+  background-image: url(../images/backgroundCurtain.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -340,6 +340,33 @@ button:hover {
           align-items: center;
 }
 
+.mainWrapper {
+  margin-left: 23%;
+  margin-right: 23%;
+}
+
 h1, h2 {
   text-align: center;
+}
+
+.textContainer {
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.curtains {
+  position: relative;
+}
+.curtains .leftCurtain img {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.curtains .rightCurtain img {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

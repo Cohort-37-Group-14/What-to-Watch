@@ -27,11 +27,20 @@
     <main>
 
 
-        <section class="randomMovieDisplay flex flexColumn alignItemsCenter" id="randomMovieDisplay">
-            <!-- This section title, please feel free to change it! I have no idea how to name this title currently :P-->
-            <h1>What to Watch</h1>
-            <h2>What movie will you watch tonight?</h2>
-            <button>Click Here for a Random Movie!</button>
+        <section class="randomMovieDisplay" id="randomMovieDisplay">
+            <div class="curtains flex">
+                <div class="leftCurtain">
+                    <img src="/images/leftCurtain1.jpg" alt="left side of opening curtain">
+                </div>
+                <div class="textContainer flex flexColumn alignItemsCenter mainWrapper">
+                    <h1>What to Watch</h1>
+                    <h2>What movie will you watch tonight?</h2>
+                    <button>Click Here for a Random Movie!</button>
+                </div>
+                <div class="rightCurtain">
+                    <img src="/images/rightCurtain.jpg" alt="right side of opening curtain">
+                </div>
+            </div>
             <!-- We can use forEach or other loop function to iterate the data from API and put them into the following div, so I gave this div a specific ID-->
             <div class="randonMovieContainer" id="randonMovieContainer">
                 <div class="flex flexColumn alignItemsCenter">
