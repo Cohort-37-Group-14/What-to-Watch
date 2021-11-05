@@ -1,0 +1,83 @@
+$cardColour: #dfe2e6;
+$lightFont: #dfe2e6;
+$darkFont: #26282b;
+$darkRed: #590505;
+$buttonColour: #a80a0a;
+$buttonHover: #6e0808;
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #590505 ;
+    background-image: url(../../images/272832-wallpaper-movie-theater-wallpaper-on-wallpaperp-movie.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: 6.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: $lightFont;
+}
+
+h2 {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: 5rem;
+    letter-spacing: 0.1rem;
+    color: $lightFont;
+}
+
+h3 {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+    color: $lightFont;
+}
+
+p {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    color: $darkFont;
+}
+
+.cardStyling {
+    width: 300px;
+    height: 450px;
+    background-color: #dfe2e6;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    border-radius: 0.35rem;
+    box-shadow: -12px 12px 18px black;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    padding: 1rem;
+    background-color: $buttonColour;
+    color:#dfe2e6;
+    border:3px solid #dfe2e600;
+    border-radius: 0.35rem;
+    transition: 0.4s;
+}
+button:hover {
+    background-color:  $buttonHover;
+    box-shadow: -3px 3px 10px $darkFont;
+}
+
