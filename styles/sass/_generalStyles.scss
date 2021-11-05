@@ -24,14 +24,29 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: $lightFont;
+    text-shadow: 2px -2px 5px #fad947;
+    padding: 0.8rem;
+    background-color: $darkRed;
+    border-radius: 0.85rem;
+    border: #fad947 4px solid;
+    box-shadow: 10px 10px 15px #fad947;
+    
+
 }
 
 h2 {
     font-family: 'Italiana', serif;
     font-weight: 400;
-    font-size: 5rem;
+    font-size: 4.5rem;
     letter-spacing: 0.1rem;
     color: $lightFont;
+    text-shadow: 1px -1px 5px #fad947;
+    padding: 0.8rem;
+    background-color: $darkFont;
+    border-radius: 0.85rem;
+    border: #fad947 4px solid;
+    box-shadow: 2px 2px 30px #fad947;
+    
 }
 
 h3 {
@@ -68,12 +83,13 @@ button {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
     font-size: 1.5rem;
-    letter-spacing: 0.05rem;
-    padding: 1rem;
+    letter-spacing: 0.07rem;
+    text-shadow: 0px -1px 5px #fad947;
+    padding: 1.2rem;
     color:#dfe2e6;
     background-color: $buttonColour;
-    box-shadow: -3px 3px 10px black;
-    border:3px solid #dfe2e600;
+    box-shadow: -25px 25px 30px black;
+    border:3px solid $darkRed;
     border-radius: 0.35rem;
     transition: 0.4s;
 }
