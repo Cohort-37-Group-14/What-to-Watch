@@ -305,8 +305,10 @@ button {
   font-size: 1.5rem;
   letter-spacing: 0.05rem;
   padding: 1rem;
-  background-color: #a80a0a;
   color: #dfe2e6;
+  background-color: #a80a0a;
+  -webkit-box-shadow: -3px 3px 10px black;
+          box-shadow: -3px 3px 10px black;
   border: 3px solid #dfe2e600;
   border-radius: 0.35rem;
   -webkit-transition: 0.4s;
@@ -315,8 +317,8 @@ button {
 
 button:hover {
   background-color: #6e0808;
-  -webkit-box-shadow: -3px 3px 10px #26282b;
-          box-shadow: -3px 3px 10px #26282b;
+  -webkit-box-shadow: -6px 6px 15px black;
+          box-shadow: -6px 6px 15px black;
 }
 
 .flex {
@@ -336,4 +338,8 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+h1, h2 {
+  text-align: center;
 }

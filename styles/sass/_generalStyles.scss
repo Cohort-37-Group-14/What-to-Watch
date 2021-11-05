@@ -70,14 +70,15 @@ button {
     font-size: 1.5rem;
     letter-spacing: 0.05rem;
     padding: 1rem;
-    background-color: $buttonColour;
     color:#dfe2e6;
+    background-color: $buttonColour;
+    box-shadow: -3px 3px 10px black;
     border:3px solid #dfe2e600;
     border-radius: 0.35rem;
     transition: 0.4s;
 }
 button:hover {
     background-color:  $buttonHover;
-    box-shadow: -3px 3px 10px $darkFont;
+    box-shadow: -6px 6px 15px black;
 }
 
