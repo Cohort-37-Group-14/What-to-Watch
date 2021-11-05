@@ -2,5 +2,16 @@
 @import 'generalStyles';
 
 //common setting START
+.flex {
+    display:flex;
+}
 
+.flexColumn {
+    flex-direction: column;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
 //common setting END
+
