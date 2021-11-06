@@ -241,7 +241,7 @@ html {
 
 body {
   background-color: #590505;
-  background-image: url(../../images/272832-wallpaper-movie-theater-wallpaper-on-wallpaperp-movie.png);
+  background-image: url(../images/backgroundCurtain.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -254,14 +254,28 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: #dfe2e6;
+  text-shadow: 2px -2px 5px #fad947;
+  padding: 0.8rem;
+  background-color: #590505;
+  border-radius: 0.85rem;
+  border: #fad947 4px solid;
+  -webkit-box-shadow: 10px 10px 15px #fad947;
+          box-shadow: 10px 10px 15px #fad947;
 }
 
 h2 {
   font-family: "Italiana", serif;
   font-weight: 400;
-  font-size: 5rem;
+  font-size: 4.5rem;
   letter-spacing: 0.1rem;
   color: #dfe2e6;
+  text-shadow: 1px -1px 5px #fad947;
+  padding: 0.8rem;
+  background-color: #26282b;
+  border-radius: 0.85rem;
+  border: #fad947 4px solid;
+  -webkit-box-shadow: 2px 2px 30px #fad947;
+          box-shadow: 2px 2px 30px #fad947;
 }
 
 h3 {
@@ -303,13 +317,14 @@ button {
   font-family: "Josefin Slab", serif;
   font-weight: 600;
   font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-  padding: 1rem;
+  letter-spacing: 0.07rem;
+  text-shadow: 0px -1px 5px #fad947;
+  padding: 1.2rem;
   color: #dfe2e6;
   background-color: #a80a0a;
-  -webkit-box-shadow: -3px 3px 10px black;
-          box-shadow: -3px 3px 10px black;
-  border: 3px solid #dfe2e600;
+  -webkit-box-shadow: -25px 25px 30px black;
+          box-shadow: -25px 25px 30px black;
+  border: 3px solid #590505;
   border-radius: 0.35rem;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -340,6 +355,33 @@ button:hover {
           align-items: center;
 }
 
+.mainWrapper {
+  margin-left: 23%;
+  margin-right: 23%;
+}
+
 h1, h2 {
   text-align: center;
+}
+
+.textContainer {
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.curtains {
+  position: relative;
+}
+.curtains .leftCurtain img {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.curtains .rightCurtain img {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

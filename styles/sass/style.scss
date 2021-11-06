@@ -13,9 +13,42 @@
 .alignItemsCenter {
     align-items: center;
 }
+
+.mainWrapper {
+    margin-left: 23%;
+    margin-right: 23%;
+}
 //common setting END
 
 h1, h2 {
     text-align: center;
+}
+
+.textContainer {
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.curtains {
+    position:relative;
+    // for possible transition:
+    // transition: all 2s ease-out;
+    .leftCurtain img {
+        width: 50%;
+        position:absolute;
+        top:0;
+        left:0;
+        // to possibly transform?:
+        // transform: translateX(-100%);
+    }
+    .rightCurtain img {
+        width: 50%;
+        position:absolute;
+        top:0;
+        right:0;
+        // to possibly transform?:
+        // transform: translateX(100%);
+    }
 }
 
