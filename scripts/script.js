@@ -12,29 +12,39 @@ app.getRandomNumber = function(min, max, variableArray) {
     let result
     for(let i = 0; i < 6; i ++) {
         do {
-            result = Math.floor(Math.random() * (max - min + 1)) + min;
+            result = Math.floor(Math.random() * (max - min + 1)) + min;//Generate a random number
             console.log(result);
-        } while (variableArray.indexOf(result) !== -1) //if the number is equal to any variables in the array, the method will redo again until getting an unique number
+        } while (variableArray.indexOf(result) !== -1) //Will check the number, if the number is equal to any variables in the array, the method will redo again until getting an unique number
         console.log(variableArray);
         app.movieOrder[i] = result;
         console.log(app.movieOrder[i]);
    }
 }
-app.getRandomNumber(0, 249, app.movieOrder);
 
 
 
+app.getSixMovies = () => {
+    app.getRandomNumber(0, 249, app.movieOrder);
+    for(let i = 0; i < 5; i ++) {
+        fetch(app.url).then(function(response) {
+            return response.json();
+        }).then(function(data){
+            const img = data.items[i].image
+            const movieData = data.items[i]
+        
+            console.log(`h1`);
+        
+            console.log(data);
+        
+            console.log(img);
+        
+            console.log(movieData);
+        })
+    }
+}
 
-fetch(app.url).then(function(response) {
-        return response.json();
-    }).then(function(data){
-        const img = data.items[0].image
-        const movieData = data.items[0]
+app.getSixMovies ();
 
-        console.log(data);
-
-        console.log(img);
-    })
 
 
 
