@@ -1,5 +1,30 @@
 const app = {};
 
+app.url = new URL('https://imdb-api.com/en/API/Top250Movies/');
+app.url.search = new URLSearchParams({
+    apiKey: 'k_xpdojdru'
+});
+
+fetch(app.url).then(function(response) {
+        return response.json();
+    }).then(function(data){
+        const img = data.items[0].image
+        const movieData = data.items[0]
+
+        console.log(data);
+
+        console.log(img);
+    })
+
+
+app.getRandomNumber = function(min, max) {
+    const result = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(result);
+}
+
+app.getRandomNumber(0, 249);
+
+
 app.init = function() {
     const h2El = document.querySelector('h2');
     const randomMovieButton = document.querySelector('#randomMovieButton');
