@@ -9,18 +9,11 @@ html {
     font-size: 16px;
 }
 
-body {
-    background-color: #590505 ;
-    background-image: url(../images/backgroundCurtain.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
 h1 {
     font-family: 'Italiana', serif;
     font-weight: 400;
     font-size: 6.25rem;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: $lightFont;
@@ -40,6 +33,7 @@ h2 {
     font-size: 4.5rem;
     letter-spacing: 0.1rem;
     color: $lightFont;
+    text-align: center;
     text-shadow: 1px -1px 5px #fad947;
     padding: 0.8rem;
     background-color: $darkFont;
@@ -74,11 +68,6 @@ p {
     box-shadow: -12px 12px 18px black;
 }
 
-.flex {
-    display: flex;
-    justify-content: center;
-}
-
 button {
     font-family: 'Josefin Slab', serif;
     font-weight: 600;
@@ -96,5 +85,17 @@ button {
 button:hover {
     background-color:  $buttonHover;
     box-shadow: -6px 6px 15px black;
+}
+
+.flex {
+    display:flex;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.alignItemsCenter {
+    align-items: center;
 }
 

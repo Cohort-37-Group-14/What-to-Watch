@@ -1,27 +1,19 @@
 @import 'normalization';
 @import 'generalStyles';
 
-//common setting START
-.flex {
-    display:flex;
-}
-
-.flexColumn {
-    flex-direction: column;
-}
-
-.alignItemsCenter {
-    align-items: center;
+body {
+    background-color: #590505 ;
+    background-image: url(../images/backgroundCurtain.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position:relative;
 }
 
 .mainWrapper {
     margin-left: 23%;
     margin-right: 23%;
-}
-//common setting END
-
-h1, h2 {
-    text-align: center;
 }
 
 .textContainer {
@@ -30,25 +22,32 @@ h1, h2 {
     z-index: 2;
 }
 
-.curtains {
-    position:relative;
-    // for possible transition:
-    // transition: all 2s ease-out;
-    .leftCurtain img {
-        width: 50%;
-        position:absolute;
-        top:0;
-        left:0;
-        // to possibly transform?:
-        // transform: translateX(-100%);
-    }
-    .rightCurtain img {
-        width: 50%;
-        position:absolute;
-        top:0;
-        right:0;
-        // to possibly transform?:
-        // transform: translateX(100%);
+.curtain {
+    height: 100vh;
+    position:absolute;
+    width: 50%;
+    top: -8vh;
+
+    img {
+        height:100%;
+        width: 100%;
     }
 }
 
+.leftCurtain{
+    left:0vw;
+    // to possibly transform?:
+    // transform: translateX(-100%);
+}
+.rightCurtain {
+    right:0vw;
+    // to possibly transform?:
+    // transform: translateX(100%);
+}
+
+
+// For stylying other elements, the below sections are temporary hidden
+.randomMovieDisplay,
+.specificMovieInfo {
+    display:none;
+}
