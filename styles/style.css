@@ -14,7 +14,7 @@ article, aside, footer, header, nav, section {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: .67em 0;
 }
 
 figcaption, figure, main {
@@ -33,7 +33,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace,monospace;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace, monospace;
+  font-family: monospace,monospace;
   font-size: 1em;
 }
 
@@ -83,11 +83,11 @@ sub, sup {
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
 
 audio, video {
@@ -136,7 +136,7 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
 }
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: .35em .75em .625em;
 }
 
 legend {
@@ -206,7 +206,7 @@ template {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: "";
+  content: '';
   clear: both;
   height: 0;
 }
@@ -239,18 +239,11 @@ html {
   font-size: 16px;
 }
 
-body {
-  background-color: #590505;
-  background-image: url(../images/backgroundCurtain.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 h1 {
-  font-family: "Italiana", serif;
+  font-family: 'Italiana', serif;
   font-weight: 400;
   font-size: 6.25rem;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: #dfe2e6;
@@ -264,11 +257,12 @@ h1 {
 }
 
 h2 {
-  font-family: "Italiana", serif;
+  font-family: 'Italiana', serif;
   font-weight: 400;
   font-size: 4.5rem;
   letter-spacing: 0.1rem;
   color: #dfe2e6;
+  text-align: center;
   text-shadow: 1px -1px 5px #fad947;
   padding: 0.8rem;
   background-color: #26282b;
@@ -279,7 +273,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Italiana", serif;
+  font-family: 'Italiana', serif;
   font-weight: 400;
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
@@ -287,7 +281,7 @@ h3 {
 }
 
 p {
-  font-family: "Josefin Slab", serif;
+  font-family: 'Josefin Slab', serif;
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.05rem;
@@ -304,17 +298,8 @@ p {
           box-shadow: -12px 12px 18px black;
 }
 
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 button {
-  font-family: "Josefin Slab", serif;
+  font-family: 'Josefin Slab', serif;
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.07rem;
@@ -355,13 +340,19 @@ button:hover {
           align-items: center;
 }
 
+body {
+  background-color: #590505;
+  background-image: url(../images/backgroundCurtain.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
 .mainWrapper {
   margin-left: 23%;
   margin-right: 23%;
-}
-
-h1, h2 {
-  text-align: center;
 }
 
 .textContainer {
@@ -370,18 +361,27 @@ h1, h2 {
   z-index: 2;
 }
 
-.curtains {
-  position: relative;
-}
-.curtains .leftCurtain img {
-  width: 50%;
+.curtain {
+  height: 100vh;
   position: absolute;
-  top: 0;
-  left: 0;
-}
-.curtains .rightCurtain img {
   width: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
+  top: -8vh;
+}
+
+.curtain img {
+  height: 100%;
+  width: 100%;
+}
+
+.leftCurtain {
+  left: 0vw;
+}
+
+.rightCurtain {
+  right: 0vw;
+}
+
+.randomMovieDisplay,
+.specificMovieInfo {
+  display: none;
 }
