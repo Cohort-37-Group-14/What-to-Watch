@@ -41,6 +41,22 @@ body {
     right:0vw;
 }
 
+// For fading out the h2 & button
+.fadeOut {
+    opacity: 0;
+    animation-name: fadeOut;
+	animation-timing-function: ease-out;
+	animation-duration: 1s;
+}
+
+@keyframes fadeOut {
+    0% {
+		opacity: 1;
+	}
+    100% {
+		opacity: 0; visibility: hidden;
+	}
+}
 
 
 // For stylying other elements, the below sections are temporary hidden

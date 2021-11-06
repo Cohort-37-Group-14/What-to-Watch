@@ -9,6 +9,10 @@ html {
     font-size: 16px;
 }
 
+body {
+    overflow: hidden;
+}
+
 h1 {
     font-family: 'Italiana', serif;
     font-weight: 400;
@@ -98,4 +102,3 @@ button:hover {
 .alignItemsCenter {
     align-items: center;
 }
-
