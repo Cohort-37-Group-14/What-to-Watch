@@ -1,7 +1,7 @@
 const app = {};
 
-app.url = new URL('https://imdb-api.com/en/API/Top250Movies/');
-app.url.search = new URLSearchParams({
+app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
+app.randomUrl.search = new URLSearchParams({
     apiKey: 'k_xpdojdru'
 });
 
@@ -21,21 +21,37 @@ app.getRandomNumber = function (min, max, variableArray) {
         console.log(app.randomMovieOrder[i]);
     }
 }
-
-app.getSixMovies = () => {
+//Getting 6 different random movies and store data in app.randomMovie 
+app.getRandomSixMovies = () => {
     app.getRandomNumber(0, 249, app.randomMovieOrder);
-    fetch(app.url).then(function (response) {
+    fetch(app.randomUrl).then(function(response) {
         return response.json();
     }).then(function (data) {
         for (let i = 0; i < 6; i ++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
-        }               
+            console.log(app.randomMovie[i].id);
+        }      
+        app.getSpecificMovie();  
+    }).catch(function(){
+        // If error, =>
     })
-    console.log(app.randomMovie);
+}
+app.getRandomSixMovies();
+//Getting specific movie info when users click 
+app.getSpecificMovie = function() {
+    app.specificMovieId =  app.randomMovie[0].id; //Temperary using '0', we will use listener to get the selected movie id
+    app.specificApiKey = 'k_xpdojdru';
+    app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${app.specificMovieId}&options=FullCast%Posters%Trailer%Ratings`;
+    fetch(app.specificUrl).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        console.log(data);
+    }).catch(function(){
+        // If error, =>
+    })
 }
 
-app.getSixMovies();
 
 
 
