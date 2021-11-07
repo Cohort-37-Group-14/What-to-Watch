@@ -1,57 +1,65 @@
 const app = {};
 
-app.url = new URL('https://imdb-api.com/en/API/Top250Movies/');
-app.url.search = new URLSearchParams({
+app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
+app.randomUrl.search = new URLSearchParams({
     apiKey: 'k_xpdojdru'
 });
 
 //Variables to storing the random numbers for getting random movies
-app.movieOrder = [movie1 = null, movie2 = null, movie3 = null, movie4 = null, movie5 = null, movie6 = null]
+app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
+app.randomMovie = [];
 // Generate 6 different random numbers for getting random movies
-app.getRandomNumber = function(min, max, variableArray) {
+app.getRandomNumber = function (min, max, variableArray) {
     let result
-    for(let i = 0; i < 6; i ++) {
+    for (let i = 0; i < 6; i++) {
         do {
             result = Math.floor(Math.random() * (max - min + 1)) + min;//Generate a random number
             console.log(result);
         } while (variableArray.indexOf(result) !== -1) //Will check the number, if the number is equal to any variables in the array, the method will redo again until getting an unique number
         console.log(variableArray);
-        app.movieOrder[i] = result;
-        console.log(app.movieOrder[i]);
-   }
-}
-
-
-
-app.getSixMovies = () => {
-    app.getRandomNumber(0, 249, app.movieOrder);
-    for(let i = 0; i < 5; i ++) {
-        fetch(app.url).then(function(response) {
-            return response.json();
-        }).then(function(data){
-            const img = data.items[i].image
-            const movieData = data.items[i]
-        
-            console.log(`h1`);
-        
-            console.log(data);
-        
-            console.log(img);
-        
-            console.log(movieData);
-        })
+        app.randomMovieOrder[i] = result;
+        console.log(app.randomMovieOrder[i]);
     }
 }
+//Getting 6 different random movies and store data in app.randomMovie 
+app.getRandomSixMovies = () => {
+    app.getRandomNumber(0, 249, app.randomMovieOrder);
+    fetch(app.randomUrl).then(function(response) {
+        return response.json();
+    }).then(function (data) {
+        for (let i = 0; i < 6; i ++) {
+            let order = app.randomMovieOrder[i]
+            app.randomMovie[i] = data.items[order - 1];
+            console.log(app.randomMovie[i].id);
+        }      
+        app.getSpecificMovie();  
+    }).catch(function(){
+        // If error, =>
+    })
+}
+app.getRandomSixMovies();
+//Getting specific movie info when users click 
+app.getSpecificMovie = function() {
+    app.specificMovieId =  app.randomMovie[0].id; //Temperary using '0', we will use listener to get the selected movie id
+    app.specificApiKey = 'k_xpdojdru';
+    app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${app.specificMovieId}&options=FullCast%Posters%Trailer%Ratings`;
+    fetch(app.specificUrl).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        console.log(data);
+    }).catch(function(){
+        // If error, =>
+    })
+}
 
-app.getSixMovies ();
 
 
 
 
 
 
-app.init = function() {
-    document.querySelector('#randomMovieButton').addEventListener('click', function() {
+app.init = function () {
+    document.querySelector('#randomMovieButton').addEventListener('click', function () {
         const h2El = document.querySelector('h2');
         const randomMovieButton = document.querySelector('#randomMovieButton');
 
@@ -71,7 +79,7 @@ app.init = function() {
 
         h2El.classList.add("fadeOut");
         randomMovieButton.classList.add("fadeOut");
-        
+
     });
 };
 
