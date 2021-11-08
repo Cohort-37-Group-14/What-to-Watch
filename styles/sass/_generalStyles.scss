@@ -3,26 +3,23 @@ $lightFont: #dfe2e6;
 $darkFont: #26282b;
 $darkRed: #590505;
 $buttonColour: #a80a0a;
-$buttonHover: #6e0808;
+$buttonHover: #f00404;
 
 html {
     font-size: 16px;
 }
 
-body {
-    overflow: hidden;
-}
-
 h1 {
     font-family: 'Italiana', serif;
     font-weight: 400;
-    font-size: 6.25rem;
+    font-size: 5.0rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: $lightFont;
     text-shadow: 2px -2px 5px #fad947;
     padding: 0.8rem;
+    margin-top: 1rem;
     background-color: $darkRed;
     border-radius: 0.85rem;
     border: #fad947 4px solid;
@@ -34,12 +31,12 @@ h1 {
 h2 {
     font-family: 'Italiana', serif;
     font-weight: 400;
-    font-size: 4.5rem;
+    font-size: 3.0rem;
     letter-spacing: 0.1rem;
     color: $lightFont;
     text-align: center;
     text-shadow: 1px -1px 5px #fad947;
-    padding: 0.8rem;
+    padding: 1rem;
     background-color: $darkFont;
     border-radius: 0.85rem;
     border: #fad947 4px solid;
@@ -50,26 +47,21 @@ h2 {
 h3 {
     font-family: 'Italiana', serif;
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     letter-spacing: 0.1rem;
     color: $lightFont;
+    text-align: center;
+    padding:0;
+    margin: 0.8rem 0 0 0;
 }
 
 p {
     font-family: 'Josefin Slab', serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.0rem;
     letter-spacing: 0.05rem;
-    color: $darkFont;
-}
-
-.cardStyling {
-    width: 300px;
-    height: 450px;
-    background-color: #dfe2e6;
-    padding: 0.8rem 1rem 0.8rem 1rem;
-    border-radius: 0.35rem;
-    box-shadow: -12px 12px 18px black;
+    color: $lightFont;
+    padding:0;
 }
 
 button {
@@ -89,6 +81,31 @@ button {
 button:hover {
     background-color:  $buttonHover;
     box-shadow: -6px 6px 15px black;
+}
+.randomMovieDisplay {
+    justify-content: center;
+    align-items: flex-start;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 370px 370px;
+    row-gap: 2%;
+    margin-top: -280px;
+}
+
+.cardStyling {
+    width: 90%;
+    height: 370px;
+    background-color: $darkFont;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    border-radius: 0.35rem;
+    border: #fad947 4px solid;
+    box-shadow: 2px 2px 30px #fad947;
+}
+
+.imageCardStyling {
+    width: 150px;
 }
 
 .flex {
