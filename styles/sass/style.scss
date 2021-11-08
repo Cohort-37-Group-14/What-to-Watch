@@ -62,15 +62,48 @@ body {
     margin-top: 20vh;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .watchList {
-    bottom: 0;
-    right: 10vw;
-    opacity: 0;
     position: absolute;
     z-index: 3;
+    bottom: 0;
+    right: 0;
+    background-color: #26282b90;
+    border: #fad947 4px solid;
+    box-shadow: -5px -5px 15px #fad947;
+    width: 22%;
+    height: auto;
+    margin-top: 0.5vh;
 
     img {
-        width: 10vw;
+        width: 90%;
+        margin-left: 5%;
+    }
+    p{
+        text-align: center;
+        margin-bottom: -1vh;
+    }
+    .watchListContainer {
+        position: absolute;
+        bottom: 25vh;
+        right: 0;
+        div {
+            flex-wrap: wrap;
+            height: 13vh;
+            width: 40vh;
+            background-color:#26282b90;
+    
+            img {
+                width: 3vw;
+            }
+    
+            h3 {
+                font-size: 1rem;
+            }
+        }
     }
 }
 
@@ -90,28 +123,7 @@ body {
 	}
 }
 
-.watchListContainer {
-    position: absolute;
 
-    bottom: 25vh;
-    right: 0;
-
-    div {
-        flex-wrap: wrap;
-        height: 13vh;
-        width: 40vh;
-
-        img {
-            width: 3vw;
-        }
-
-        h3 {
-            font-size: 1rem;
-        }
-    }
-    
-
-}
 
 
 //For stylying other elements, the below sections are temporary hidden

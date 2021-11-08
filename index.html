@@ -32,14 +32,15 @@
         <section class="curtain rightCurtain" id="rightCurtain">
                 <img src="./images/rightCurtain.jpg" alt="right side of opening curtain">
         </section>
-        <section class="randomMovieDisplay flex" id="randomMovieDisplay">
+        <section class="randomMovieDisplay flex flexColumn" id="randomMovieDisplay">
             <!-- We can use forEach or other loop function to iterate the data from API and put them into the following div, so I gave this div a specific ID-->
             <div class="randonMovieContainer grid" id="randonMovieContainer">
                 <!-- This section is for when the 6 random movies are generated, they will populate here -->
             </div>
         </section>
-        <section class="watchList" id="watchList">
-            <img id="droggingSpace" src="images/watchListIcon.png" alt="Watch list function icon">
+        <section class="watchList hidden" id="watchList">
+            <p>Drag Your Movies Here!</p>
+            <img id="draggingSpace" src="images/watchlistLogo.png" alt="Watch list function icon">
             <div class="watchListContainer flex flexColumn" id="watchListContainer"></div>
         </section>
 
