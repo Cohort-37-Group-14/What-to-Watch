@@ -31,13 +31,13 @@ app.getRandomSixMovies = () => {
         for (let i = 0; i < 6; i ++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
+
             app.displayRandomMovies(app.randomMovie[i]);
         }   
     }).catch(function(){
         // If error, =>
     })
 }
-
 
 //Getting specific movie info when users click 
 app.getSpecificMovie = function() {
@@ -61,14 +61,17 @@ app.displayRandomMovies = function (movieDataFromApi) {
     //  create variables for the pieces in the DOM that will be created/used
     const movieContainer = document.querySelector('#randonMovieContainer');
     const movieCard = document.createElement('div');
+    movieCard.classList.add('draggingContainer'); //Add a class name for this div for dragging function
+    movieCard.setAttribute('draggable', true); // Set this div can be draggable
     const img = document.createElement('img');
+    img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
     const title = document.createElement('h3');
     const rating = document.createElement('p')
     
     // Set the values/content for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-    title.textContent = `${movieDataFromApi.fullTitle}`;
+    title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 30)}...` ;
     rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
 
     // Append the elements to the right part of the DOM
@@ -86,12 +89,26 @@ app.displayRandomMovies = function (movieDataFromApi) {
 }
 
 
+// I want to select add event listener to the selected element but not working currently, still woring on it
+app.dragAndDrop = function() {
+    const draggables = document.getElementsByClassName('draggingContainer');
+    const droppable = document.querySelector('#watchList');
+    console.log(`dragAndDrop start!`);
+    console.log(draggables);
+    Array.from(draggables).forEach(item => {
+        item.addEventListener('click', () => {
+          console.log(`click!`)
+        })
+    })
+}
+
 
 
 app.init = function () {
     document.querySelector('#randomMovieButton').addEventListener('click', function () {
-        const h2El = document.querySelector('h2');
-        const randomMovieButton = document.querySelector('#randomMovieButton');
+        document.querySelector('h2').classList.add("fadeOut");
+        document.querySelector('#randomMovieButton').classList.add("fadeOut");
+        document.querySelector('#watchList').classList.add('fadeIn');
 
         document.querySelector('#leftCurtain').style.left = '-30vw';
         document.querySelector('#leftCurtain').style.transition = 'left 3s';
@@ -102,12 +119,16 @@ app.init = function () {
         document.querySelector('#leftCurtain').style.border = 'black 4px solid';
         document.querySelector('#leftCurtain').style.boxShadow = '40px 40px 55px black';
 
-        h2El.classList.add("fadeOut");
-        randomMovieButton.classList.add("fadeOut");
+        document.querySelector('#randomMovieButton').style.display = 'none';
+        document.querySelector('h1').style.display = 'none';
 
         app.getRandomSixMovies();
 
+        app.dragAndDrop();
+
     });
+
+    
     
 };
 

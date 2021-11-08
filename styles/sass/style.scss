@@ -58,9 +58,40 @@ body {
 	}
 }
 
+.randomMovieDisplay {
+    margin-top: 20vh;
+}
 
-// For stylying other elements, the below sections are temporary hidden
-// .randomMovieDisplay,
-// .specificMovieInfo {
-//     display:none;
-// }
+.watchList {
+    bottom: 0;
+    right: 10vw;
+    opacity: 0;
+    position: absolute;
+    z-index: 3;
+
+    img {
+        width: 10vw;
+    }
+}
+
+.fadeIn {
+    opacity: 1;
+    animation-name: fadeIn;
+	animation-timing-function: cubic-bezier(.92,.29,.74,.13);
+	animation-duration: 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+		opacity: 0;
+	}
+    100% {
+		opacity: 1; 
+	}
+}
+
+
+//For stylying other elements, the below sections are temporary hidden
+.specificMovieInfo {
+    display:none;
+}
