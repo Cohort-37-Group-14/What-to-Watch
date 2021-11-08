@@ -31,9 +31,9 @@ app.getRandomSixMovies = () => {
         for (let i = 0; i < 6; i ++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
-
             app.displayRandomMovies(app.randomMovie[i]);
         }   
+        app.dragAndDrop();
     }).catch(function(){
         // If error, =>
     })
@@ -91,20 +91,29 @@ app.displayRandomMovies = function (movieDataFromApi) {
 
 // I want to select add event listener to the selected element but not working currently, still woring on it
 app.dragAndDrop = function() {
+
+
     const draggables = document.getElementsByClassName('draggingContainer');
     const droppable = document.querySelector('#watchList');
-    console.log(`dragAndDrop start!`);
+    console.log(draggables.length);
     console.log(draggables);
-    Array.from(draggables).forEach(item => {
-        item.addEventListener('click', () => {
-          console.log(`click!`)
+    for (let i =0 ; i < draggables.length ; i ++) {
+        draggables[i].addEventListener('click', function() {
+        console.log(draggables[i]);
         })
-    })
+    }
 }
 
 
 
 app.init = function () {
+    
+    
+};
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    app.init();
+
     document.querySelector('#randomMovieButton').addEventListener('click', function () {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
@@ -124,12 +133,10 @@ app.init = function () {
 
         app.getRandomSixMovies();
 
-        app.dragAndDrop();
+        
 
     });
 
     
-    
-};
+});
 
-app.init();
