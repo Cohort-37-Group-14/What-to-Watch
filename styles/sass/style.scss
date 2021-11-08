@@ -90,6 +90,29 @@ body {
 	}
 }
 
+.watchListContainer {
+    position: absolute;
+
+    bottom: 25vh;
+    right: 0;
+
+    div {
+        flex-wrap: wrap;
+        height: 13vh;
+        width: 40vh;
+
+        img {
+            width: 3vw;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+    }
+    
+
+}
+
 
 //For stylying other elements, the below sections are temporary hidden
 .specificMovieInfo {
