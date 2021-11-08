@@ -2,7 +2,9 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    apiKey: 'k_xpdojdru'
+    // apiKey: 'k_xpdojdru'
+    // apiKey: 'k_jsfbzbhz'
+    apiKey: 'k_4eg4wtys'
 });
 
 //Variables to storing the random numbers for getting random movies
@@ -27,17 +29,19 @@ app.getRandomSixMovies = () => {
     fetch(app.randomUrl).then(function(response) {
         return response.json();
     }).then(function (data) {
+        console.log(data);
         for (let i = 0; i < 6; i ++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
-            console.log(app.randomMovie[i].id);
+            console.log(app.randomMovie[i]);
         }      
-        app.getSpecificMovie();  
     }).catch(function(){
         // If error, =>
     })
 }
 app.getRandomSixMovies();
+
+
 //Getting specific movie info when users click 
 app.getSpecificMovie = function() {
     app.specificMovieId =  app.randomMovie[0].id; //Temperary using '0', we will use listener to get the selected movie id
