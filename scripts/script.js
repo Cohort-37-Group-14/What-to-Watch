@@ -92,19 +92,39 @@ app.displayRandomMovies = function (movieDataFromApi) {
 }
 
 
-// I want to select add event listener to the selected element but not working currently, still woring on it
+// Drag and drop function for letting users save their favorite movies into watch list
+app.draggingData = '';
 app.dragAndDrop = function() {
-
-
     const draggables = document.getElementsByClassName('draggingContainer');
     const droppable = document.querySelector('#watchList');
     console.log(draggables.length);
     console.log(draggables);
     for (let i =0 ; i < draggables.length ; i ++) {
-        draggables[i].addEventListener('click', function() {
-        console.log(draggables[i]);
+        draggables[i].addEventListener('dragstart', function() {
+            app.draggingData = this ;
+            console.log(app.draggingData);
+            setTimeout(() => {
+                this.style.opacity = '0';
+            }, 0);
         })
+        draggables[i].addEventListener('dragstart', function() {
+            // app.draggingData = '';
+        })   
     }
+    droppable.addEventListener('dragenter', function(e){
+        e.preventDefault();
+        document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
+    })
+    droppable.addEventListener('dragover', function(e){
+        e.preventDefault();
+        document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
+    }, false)
+    droppable.addEventListener('drop', function(e){
+        e.preventDefault();
+        console.log("drop!");
+        app.draggingData.style.opacity = '1';
+        document.querySelector('#watchListContainer').appendChild(app.draggingData);
+    })
 }
 
 app.moreRandomMovies = function (movieDataFromApi) {
