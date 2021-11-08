@@ -27,46 +27,22 @@
             <button id="randomMovieButton">Click Here for a Random Movie!</button>
         </section>
         <section class="curtain leftCurtain" id="leftCurtain">
-            <img src="./images/leftCurtain1.jpg" alt="left side of opening curtain">
+            <img src="./images/leftCurtain.jpg" alt="left side of opening curtain">
         </section>
         <section class="curtain rightCurtain" id="rightCurtain">
                 <img src="./images/rightCurtain.jpg" alt="right side of opening curtain">
         </section>
-        <section class="randomMovieDisplay" id="randomMovieDisplay">
+        <section class="randomMovieDisplay flex" id="randomMovieDisplay">
             <!-- We can use forEach or other loop function to iterate the data from API and put them into the following div, so I gave this div a specific ID-->
-            <div class="randonMovieContainer" id="randonMovieContainer">
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="flex flexColumn alignItemsCenter">
-                    <img>
-                    <h3></h3>
-                    <p></p>
-                </div>
+            <div class="randonMovieContainer grid" id="randonMovieContainer">
+                <!-- This section is for when the 6 random movies are generated, they will populate here -->
             </div>
         </section>
+        <section class="watchList" id="watchList">
+            <img src="images/watchListIcon.png" alt="Watch list function icon">
+            <div class="watchListContainer" id="watchListContainer"></div>
+        </section>
+
         <!-- The following section is for the interface, when users click a movie from our display, this interface shows up and provides more detially info about the selected movie to users -->
         <section class="specificMovieInfo" id="specificMovieInfo">
             <div class="flex flexColumn alignItemsCenter">
