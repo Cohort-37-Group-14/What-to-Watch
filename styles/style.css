@@ -342,7 +342,7 @@ button:hover {
   background-color: #26282b;
   padding: 0.8rem 1rem 0.8rem 1rem;
   border-radius: 0.35rem;
-  border: #fad947 4px solid;
+  border: 4px solid #fad947;
   -webkit-box-shadow: 2px 2px 30px #fad947;
           box-shadow: 2px 2px 30px #fad947;
 }
@@ -483,6 +483,27 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+.watchListContainer {
+  position: absolute;
+  bottom: 25vh;
+  right: 0;
+}
+
+.watchListContainer div {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 13vh;
+  width: 40vh;
+}
+
+.watchListContainer div img {
+  width: 3vw;
+}
+
+.watchListContainer div h3 {
+  font-size: 1rem;
 }
 
 .specificMovieInfo {

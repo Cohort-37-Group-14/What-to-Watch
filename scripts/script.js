@@ -71,7 +71,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     // Set the values/content for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-    title.textContent = movieDataFromApi.fullTitle.length < 33 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 30)}...` ;
+    title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
     rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
 
     // Append the elements to the right part of the DOM
@@ -108,15 +108,15 @@ app.dragAndDrop = function() {
             // app.draggingData = '';
         })   
     }
-    droppable.addEventListener('ondragenter', function(e){
+    droppable.addEventListener('dragenter', function(e){
         e.preventDefault();
         document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
     })
-    droppable.addEventListener('ondragover', function(e){
+    droppable.addEventListener('dragover', function(e){
         e.preventDefault();
         document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
     }, false)
-    droppable.addEventListener('ondragleave', function(e){
+    droppable.addEventListener('drop', function(e){
         e.preventDefault();
         console.log("drop!");
         app.draggingData.style.opacity = '1';
