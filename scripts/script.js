@@ -97,6 +97,7 @@ app.draggingData = '';
 app.dragAndDrop = function() {
     const draggables = document.getElementsByClassName('draggingContainer');
     const droppable = document.querySelector('#watchList');
+    droppable.classList.remove('hidden');
     console.log(draggables.length);
     console.log(draggables);
     for (let i =0 ; i < draggables.length ; i ++) {
@@ -112,13 +113,9 @@ app.dragAndDrop = function() {
         })   
     }
     droppable.addEventListener('dragenter', function(e){
-        e.preventDefault();
-        document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
-    })
+        e.preventDefault();})
     droppable.addEventListener('dragover', function(e){
-        e.preventDefault();
-        document.querySelector('#droggingSpace').style.border = '4px solid #fad947';
-    }, false)
+        e.preventDefault();}, false)
     droppable.addEventListener('drop', function(e){
         e.preventDefault();
         console.log("drop!");
