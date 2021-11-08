@@ -4,8 +4,8 @@ app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
     // apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
-    // apiKey: 'k_4eg4wtys'
-    apiKey: 'k_3349nupk'
+    apiKey: 'k_4eg4wtys'
+    // apiKey: 'k_3349nupk'
 });
 
 //Variables to storing the random numbers for getting random movies
@@ -32,6 +32,7 @@ app.getRandomSixMovies = () => {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
             app.displayRandomMovies(app.randomMovie[i]);
+            app.moreRandomMovies(app.randomMovie[i]);
         }   
         app.dragAndDrop();
     }).catch(function(){
@@ -61,18 +62,17 @@ app.displayRandomMovies = function (movieDataFromApi) {
     //  create variables for the pieces in the DOM that will be created/used
     const movieContainer = document.querySelector('#randonMovieContainer');
     const movieCard = document.createElement('div');
-    movieCard.classList.add('draggingContainer'); //Add a class name for this div for dragging function
-    movieCard.setAttribute('draggable', true); // Set this div can be draggable
     const img = document.createElement('img');
-    img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
     const title = document.createElement('h3');
-    const rating = document.createElement('p')
+    const rating = document.createElement('p');
     
-    // Set the values/content for the variables
+    // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-    title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 30)}...` ;
+    title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
     rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
+    movieCard.setAttribute('draggable', true); // Set this div can be draggable
+    img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
 
     // Append the elements to the right part of the DOM
     movieCard.appendChild(img);
@@ -86,6 +86,9 @@ app.displayRandomMovies = function (movieDataFromApi) {
     movieCard.classList.add("alignItemsCenter");  
     movieCard.classList.add("cardStyling");
     img.classList.add("imageCardStyling");
+    title.classList.add("movieTitle")
+    rating.classList.add("movieRating")
+    movieCard.classList.add('draggingContainer'); //Add a class name for this div for dragging function
 }
 
 
@@ -104,6 +107,25 @@ app.dragAndDrop = function() {
     }
 }
 
+app.moreRandomMovies = function (movieDataFromApi) {
+    const moreMoviesButton = document.querySelector('.buttonStyling');
+    moreMoviesButton.addEventListener('click', function () {
+        // query selector
+        const img = document.querySelectorAll('.imageCardStyling');
+        const title = document.querySelectorAll('.movieTitle');
+        const rating = document.querySelectorAll('.movieRating');
+
+        // Change textContent to put new data from API in the movie cards
+        img.src = movieDataFromApi.image;
+        img.alt = `Poster for: ${movieDataFromApi.title} movie`;
+        title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
+        rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
+
+        console.log('SOMETHINNNGGGGGGG')
+
+    })
+}
+
 
 
 app.init = function () {
@@ -117,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelector('#randomMovieButton').addEventListener('click', function () {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
+        document.querySelector('h1').classList.add("fadeOut");
         document.querySelector('#watchList').classList.add('fadeIn');
 
         document.querySelector('#leftCurtain').style.left = '-30vw';
@@ -133,7 +156,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
         app.getRandomSixMovies();
 
-        
+        const movieContainer = document.querySelector('#randomMovieDisplay');
+        const moreMoviesButton = document.createElement('button');
+        moreMoviesButton.textContent = 'More Movies!'
+        moreMoviesButton.classList.add('buttonStyling');
+        movieContainer.appendChild(moreMoviesButton);
 
     });
 
