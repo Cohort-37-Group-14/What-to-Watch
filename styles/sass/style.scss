@@ -68,6 +68,13 @@ body {
     visibility: hidden;
 }
 
+.zeroOpacity {
+    opacity: 0;
+    font-size: 0.0001rem;
+    margin:0;
+    padding:0;
+}
+
 .watchList {
     position: absolute;
     z-index: 3;
