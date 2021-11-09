@@ -32,7 +32,6 @@ app.getRandomSixMovies = () => {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
             app.displayRandomMovies(app.randomMovie[i]);
-            app.moreRandomMovies(app.randomMovie[i]);
         }   
         app.dragAndDrop();
     }).catch(function(){
@@ -69,7 +68,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-    title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
+    title.textContent = movieDataFromApi.fullTitle.length < 25 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 23)}...` ;
     rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
     movieCard.setAttribute('draggable', true); // Set this div can be draggable
     img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
@@ -97,18 +96,21 @@ app.draggingData = '';
 app.dragAndDrop = function() {
     const draggables = document.getElementsByClassName('draggingContainer');
     const droppable = document.querySelector('#watchList');
+    let dropped = 0; // A listener to check the element is dropped into the correct area
     droppable.classList.remove('hidden');
-    console.log(draggables.length);
-    console.log(draggables);
     for (let i =0 ; i < draggables.length ; i ++) {
         draggables[i].addEventListener('dragstart', function() {
             app.draggingData = this ;
-            console.log(app.draggingData);
             setTimeout(() => {
                 this.style.opacity = '0';
             }, 0);
+            dropped = 1; //Listener is on fire
         })
-        draggables[i].addEventListener('dragstart', function() {
+        draggables[i].addEventListener('dragend', function() {
+            if (dropped === 1) { // If not dropped into the correct space, the movie card is appearing again
+                this.style.opacity = '1';
+                dropped = 0;
+            }
             // app.draggingData = '';
         })   
     }
@@ -118,40 +120,13 @@ app.dragAndDrop = function() {
         e.preventDefault();}, false)
     droppable.addEventListener('drop', function(e){
         e.preventDefault();
-        console.log("drop!");
         app.draggingData.style.opacity = '1';
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
+        dropped = 0; // Dropped into the correct space, reset value
     })
 }
-
-app.moreRandomMovies = function (movieDataFromApi) {
-    const moreMoviesButton = document.querySelector('.buttonStyling');
-    moreMoviesButton.addEventListener('click', function () {
-        app.getRandomSixMovies();
-
-        // query selector
-        const img = document.querySelectorAll('.imageCardStyling');
-        const title = document.querySelectorAll('.movieTitle');
-        const rating = document.querySelectorAll('.movieRating');
-
-        // Change textContent to put new data from API in the movie cards
-        img.src = movieDataFromApi.image;
-        img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-        title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
-        rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
-
-    })
-}
-
-
 
 app.init = function () {
-    
-    
-};
-
-document.addEventListener("DOMContentLoaded", function(e) {
-    app.init();
 
     document.querySelector('#randomMovieButton').addEventListener('click', function () {
         document.querySelector('h2').classList.add("fadeOut");
@@ -177,8 +152,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
         moreMoviesButton.classList.add('buttonStyling');
         movieContainer.appendChild(moreMoviesButton);
 
+        document.querySelector('.buttonStyling').addEventListener('click', function () {
+            console.log(`CLICK!`);
+            document.querySelector('#randonMovieContainer').innerHTML = '';
+            app.getRandomSixMovies();  
+        })
     });
-
+};
     
-});
+app.init();
+
 
