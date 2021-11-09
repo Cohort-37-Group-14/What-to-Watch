@@ -3,8 +3,8 @@ const app = {};
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
     // apiKey: 'k_xpdojdru'
-    // apiKey: 'k_jsfbzbhz'
-    apiKey: 'k_4eg4wtys'
+    apiKey: 'k_jsfbzbhz'
+    // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
 
@@ -34,27 +34,11 @@ app.getRandomSixMovies = () => {
             app.displayRandomMovies(app.randomMovie[i]);
         }   
         app.dragAndDrop();
+        app.specificPopup();
     }).catch(function(){
         // If error, =>
     })
 }
-
-//Getting specific movie info when users click 
-app.getSpecificMovie = function() {
-    app.specificMovieId =  app.randomMovie[0].id; //Temperary using '0', we will use listener to get the selected movie id
-    app.specificApiKey = 'k_xpdojdru';
-    // app.specificApiKey = 'k_jsfbzbhz';
-    app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${app.specificMovieId}&options=FullCast%Posters%Trailer%Ratings`;
-    fetch(app.specificUrl).then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        console.log(data);
-    }).catch(function(){
-        // If error, =>
-    })
-}
-
-
 
 // function to display movies
 app.displayRandomMovies = function (movieDataFromApi) {
@@ -64,6 +48,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     const img = document.createElement('img');
     const title = document.createElement('h3');
     const rating = document.createElement('p');
+    const id = document.createElement('span');
     
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
@@ -72,11 +57,13 @@ app.displayRandomMovies = function (movieDataFromApi) {
     rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
     movieCard.setAttribute('draggable', true); // Set this div can be draggable
     img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
+    id.textContent = movieDataFromApi.id;
 
     // Append the elements to the right part of the DOM
     movieCard.appendChild(img);
     movieCard.appendChild(title);
     movieCard.appendChild(rating);
+    movieCard.appendChild(id);
     movieContainer.appendChild(movieCard);
 
     // Attach the styling classes to each element
@@ -88,6 +75,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     title.classList.add("movieTitle")
     rating.classList.add("movieRating")
     movieCard.classList.add('draggingContainer'); //Add a class name for this div for dragging function
+    id.classList.add('zeroOpacity');
 }
 
 
@@ -124,6 +112,37 @@ app.dragAndDrop = function() {
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
         dropped = 0; // Dropped into the correct space, reset value
     })
+}
+
+//Getting specific movie info when users click
+app.specificPopup = function() {
+    const popups = document.querySelectorAll('.draggingContainer');
+        for (let i =0 ; i < popups.length ; i ++) {
+            popups[i].addEventListener('click', function(){
+            document.querySelector('#specificMovieInfo').style.display = 'block';
+            const id = this.childNodes[3].innerText;
+            // app.specificApiKey = 'k_xpdojdru';
+            app.specificApiKey = 'k_jsfbzbhz'
+            // app.specificApiKey = 'k_4eg4wtys'
+            // app.specificApiKey = 'k_3349nupk'
+            app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
+            fetch(app.specificUrl).then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                console.log(data);
+                const tittleSelected = document.querySelector('#selectedMovieTittle');
+                const videoSelected = document.querySelector('#selectedMovieVideo');
+                const descriptionSelected = document.querySelector('#selectedMovieDescription');
+
+                tittleSelected.textContent = data.fullTitle;
+                selectedMovieImg.src = data.posters.posters[0].link;
+                descriptionSelected.textContent = data.plot;
+
+            }).catch(function(){
+                // If error, =>
+            })
+        })
+    }
 }
 
 app.init = function () {
