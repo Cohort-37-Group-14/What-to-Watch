@@ -323,7 +323,7 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 .grid {
@@ -331,7 +331,7 @@ button:hover {
   grid-template-columns: 300px 300px 300px;
   grid-template-rows: 370px 370px;
   row-gap: 2%;
-  margin-top: -280px;
+  margin-top: -580px;
 }
 
 .cardStyling {
@@ -438,8 +438,14 @@ body {
           animation-name: fadeOut;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-transition: -webkit-transform 1.5s;
+  transition: -webkit-transform 1.5s;
+  transition: transform 1.5s;
+  transition: transform 1.5s, -webkit-transform 1.5s;
+  -webkit-transform: translateY(-500px);
+          transform: translateY(-500px);
 }
 
 @-webkit-keyframes fadeOut {
@@ -448,7 +454,6 @@ body {
   }
   100% {
     opacity: 0;
-    display: none;
   }
 }
 
@@ -458,7 +463,6 @@ body {
   }
   100% {
     opacity: 0;
-    display: none;
   }
 }
 .randomMovieDisplay {

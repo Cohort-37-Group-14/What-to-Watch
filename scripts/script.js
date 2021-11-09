@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
         document.querySelector('h1').classList.add("fadeOut");
+        document.querySelector('.textContainer').classList.add("fadeOut");
         document.querySelector('#watchList').classList.add('fadeIn');
 
         document.querySelector('#leftCurtain').style.left = '-30vw';
@@ -167,9 +168,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         document.querySelector('#rightCurtain').style.boxShadow = '-40px 40px 55px black';
         document.querySelector('#leftCurtain').style.border = 'black 4px solid';
         document.querySelector('#leftCurtain').style.boxShadow = '40px 40px 55px black';
-
-        document.querySelector('#randomMovieButton').style.display = 'none';
-        document.querySelector('h1').style.display = 'none';
 
         app.getRandomSixMovies();
 
