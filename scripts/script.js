@@ -127,6 +127,8 @@ app.dragAndDrop = function() {
 app.moreRandomMovies = function (movieDataFromApi) {
     const moreMoviesButton = document.querySelector('.buttonStyling');
     moreMoviesButton.addEventListener('click', function () {
+        app.getRandomSixMovies();
+
         // query selector
         const img = document.querySelectorAll('.imageCardStyling');
         const title = document.querySelectorAll('.movieTitle');
@@ -137,8 +139,6 @@ app.moreRandomMovies = function (movieDataFromApi) {
         img.alt = `Poster for: ${movieDataFromApi.title} movie`;
         title.textContent = movieDataFromApi.fullTitle.length < 30 ? `${movieDataFromApi.fullTitle} `: `${movieDataFromApi.fullTitle.slice(0, 27)}...` ;
         rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
-
-        console.log('SOMETHINNNGGGGGGG')
 
     })
 }

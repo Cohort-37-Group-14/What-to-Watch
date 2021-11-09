@@ -480,7 +480,6 @@ body {
           box-shadow: -5px -5px 15px #fad947;
   width: 22%;
   height: auto;
-  margin-top: 0.5vh;
 }
 .watchList img {
   width: 90%;
@@ -492,7 +491,7 @@ body {
 }
 .watchList .watchListContainer {
   position: absolute;
-  bottom: 25vh;
+  bottom: 26vh;
   right: 0;
 }
 .watchList .watchListContainer div {
