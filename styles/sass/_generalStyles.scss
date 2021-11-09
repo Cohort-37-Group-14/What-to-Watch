@@ -85,14 +85,14 @@ button:hover {
 .randomMovieDisplay {
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 4;
 }
 .grid {
     display: grid;
     grid-template-columns: 300px 300px 300px;
     grid-template-rows: 370px 370px;
     row-gap: 2%;
-    margin-top: -280px;
+    margin-top: -580px;
 }
 
 .cardStyling {
