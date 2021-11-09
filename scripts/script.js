@@ -2,8 +2,8 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    // apiKey: 'k_xpdojdru'
-    apiKey: 'k_jsfbzbhz'
+    apiKey: 'k_xpdojdru'
+    // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
@@ -151,7 +151,8 @@ app.init = function () {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
         document.querySelector('h1').classList.add("fadeOut");
-        document.querySelector('.textContainer').classList.add("fadeOut");
+        document.querySelector('header').classList.add("fadeOut");
+        document.querySelector('#firstTextContainer').classList.add("fadeOut");
         document.querySelector('#watchList').classList.add('fadeIn');
 
         document.querySelector('#leftCurtain').style.left = '-30vw';
