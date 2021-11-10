@@ -19,6 +19,7 @@ body {
 
 .textContainer {
     position: relative;
+    top: 10vh;
     z-index: 2;
 }
 
@@ -66,6 +67,10 @@ body {
 
 .hidden {
     visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }
 
 .zeroOpacity {
@@ -137,8 +142,8 @@ body {
     position:absolute;
     top:0;
     right: 0;
+    background-color: #a80a0a99;
 }
-
 
 //For stylying other elements, the below sections are temporary hidden
 .specificMovieInfo {

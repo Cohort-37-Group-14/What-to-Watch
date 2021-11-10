@@ -2,8 +2,8 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    apiKey: 'k_xpdojdru'
-    // apiKey: 'k_jsfbzbhz'
+    // apiKey: 'k_xpdojdru'
+    apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
@@ -133,8 +133,8 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
-            app.specificApiKey = 'k_xpdojdru';
-            // app.specificApiKey = 'k_jsfbzbhz';
+            // app.specificApiKey = 'k_xpdojdru';
+            app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
@@ -142,13 +142,30 @@ app.specificPopup = function () {
                 return response.json();
             }).then(function (data) {
                 console.log(data);
-                const tittleSelected = document.querySelector('#selectedMovieTittle');
+                const titleSelected = document.querySelector('#selectedMovieTittle');
                 const selectedMovieImg= document.querySelector('#selectedMovieImg');
                 const descriptionSelected = document.querySelector('#selectedMovieDescription');
+                const popUpCard = document.querySelector('.popUpCard');
+                const closeButton = document.createElement('button')
 
-                tittleSelected.textContent = data.fullTitle;
+                titleSelected.textContent = data.fullTitle;
                 selectedMovieImg.src = data.posters.posters[0].link;
                 descriptionSelected.textContent = data.plot;
+                closeButton.textContent = 'Close';
+                closeButton.classList.add('buttonStyling');
+                selectedMovieImg.classList.add('imagePopUpCard');
+                popUpCard.classList.add("visible");
+
+                popUpCard.appendChild(selectedMovieImg);
+                popUpCard.appendChild(titleSelected);
+                popUpCard.appendChild(descriptionSelected);
+                popUpCard.appendChild(closeButton);
+
+                closeButton.addEventListener('click', function () {
+                    popUpCard.classList.add("hidden");
+                    popUpCard.classList.remove("visible");
+                    closeButton.remove();
+                });
 
             }).catch(function () {
                 // If error, =>
