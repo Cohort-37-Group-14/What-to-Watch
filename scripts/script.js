@@ -2,8 +2,8 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    apiKey: 'k_xpdojdru'
-    // apiKey: 'k_jsfbzbhz'
+    // apiKey: 'k_xpdojdru'
+    apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
@@ -133,8 +133,8 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
-            app.specificApiKey = 'k_xpdojdru';
-            // app.specificApiKey = 'k_jsfbzbhz';
+            // app.specificApiKey = 'k_xpdojdru';
+            app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
@@ -154,6 +154,7 @@ app.specificPopup = function () {
                 closeButton.textContent = 'Close';
                 closeButton.classList.add('buttonStyling');
                 selectedMovieImg.classList.add('imagePopUpCard');
+                popUpCard.classList.add("visible");
 
                 popUpCard.appendChild(selectedMovieImg);
                 popUpCard.appendChild(titleSelected);
@@ -161,7 +162,9 @@ app.specificPopup = function () {
                 popUpCard.appendChild(closeButton);
 
                 closeButton.addEventListener('click', function () {
-                    popUpCard.classList.add("specificMovieInfo");
+                    popUpCard.classList.add("hidden");
+                    popUpCard.classList.remove("visible");
+                    closeButton.remove();
                 });
 
             }).catch(function () {

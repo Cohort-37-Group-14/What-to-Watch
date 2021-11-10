@@ -500,6 +500,10 @@ body {
   visibility: hidden;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .zeroOpacity {
   opacity: 0;
   font-size: 0.0001rem;
