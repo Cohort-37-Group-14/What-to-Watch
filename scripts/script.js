@@ -2,10 +2,12 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    // apiKey: 'k_xpdojdru'
-    apiKey: 'k_jsfbzbhz'
+    apiKey: 'k_xpdojdru'
+    // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
+    //apiKey:  'k_ya5sqa8y'
+    //apiKey:  'k_0dsq0v17'
 });
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
@@ -24,8 +26,14 @@ app.getRandomNumber = function (min, max, variableArray) {
 app.getRandomSixMovies = () => {
     app.getRandomNumber(0, 249, app.randomMovieOrder);
     fetch(app.randomUrl).then(function (response) {
-        return response.json();
+        console.log('response', response);
+        if (response.ok) {
+            return response.json();
+          } else {
+            alert("Something went wrong in API call!");
+          }
     }).then(function (data) {
+        console.log('data', data);
         for (let i = 0; i < 6; i++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
@@ -35,7 +43,7 @@ app.getRandomSixMovies = () => {
         app.specificPopup();
         app.plusButtonOnMovieCard();
     }).catch(function () {
-        // If error, =>
+            alert('We met the maximum usage of the movie API (100/calls per day)!');
     })
 }
 // Function to display movies
@@ -123,13 +131,19 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
-            // app.specificApiKey = 'k_xpdojdru';
-            app.specificApiKey = 'k_jsfbzbhz';
+            app.specificApiKey = 'k_xpdojdru';
+            // app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
+            //app.specificApiKey =  'k_ya5sqa8y';
+            //app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
-                return response.json();
+                if (response.ok) {
+                    return response.json();
+                  } else {
+                    alert("Something went wrong in API call!");
+                  }
             }).then(function (data) {
                 const titleSelected = document.querySelector('#selectedMovieTittle');
                 const selectedMovieImg= document.querySelector('#selectedMovieImg');
@@ -156,7 +170,7 @@ app.specificPopup = function () {
                     closeButton.remove();
                 });
             }).catch(function () {
-                // If error, =>
+                alert('We met the maximum usage of the movie API (100/calls per day)!');
             })
         })
     }
