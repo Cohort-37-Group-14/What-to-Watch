@@ -21,13 +21,18 @@
 </head>
 
 <body>
-    <header class="textContainer mainWrapper">
-        <h1>What to Watch</h1>
+    <a class="skip-link" href="./index.html#firstTextContainer">Skip to main content</a>
+    <header class="textContainer">
+        <div class="mainWrapper">
+            <h1>What to Watch</h1>
+        </div>
     </header>
     <main>
-        <section class="textContainer flex flexColumn alignItemsCenter mainWrapper" id="firstTextContainer">
-            <h2>What movie will you watch tonight?</h2>
-            <button id="randomMovieButton">Click Here for a Random Movie!</button>
+        <section class="textContainer" id="firstTextContainer">
+            <div class="mainWrapper flex flexColumn alignItemsCenter">
+                <h2>What movie will you watch tonight?</h2>
+                <button id="randomMovieButton">Click Here for a Random Movie!</button>
+            </div>
         </section>
         <section class="curtain leftCurtain" id="leftCurtain">
             <img src="./images/leftCurtain.jpg" alt="left side of opening curtain">
@@ -36,17 +41,13 @@
                 <img src="./images/rightCurtain.jpg" alt="right side of opening curtain">
         </section>
         <section class="randomMovieDisplay flex flexColumn" id="randomMovieDisplay">
-            <div class="randonMovieContainer grid" id="randonMovieContainer">
-                <!-- This section is for when the 6 random movies are generated, they will populate here -->
-            </div>
+            <div class="randonMovieContainer grid" id="randonMovieContainer"></div>
         </section>
         <section class="watchList hidden" id="watchList">
             <p>Drag Your Movies Here!</p>
             <img id="draggingSpace" src="images/watchlistLogo.png" alt="Watch list function icon">
             <div class="watchListContainer flex flexColumn" id="watchListContainer"></div>
         </section>
-
-        <!-- The following section is for the interface, when users click a movie from our display, this interface shows up and provides more detially info about the selected movie to users -->
         <section class="specificMovieInfo" id="specificMovieInfo">
             <div class="flex flexColumn alignItemsCenter popUpCard">
                 <h2 id="selectedMovieTittle"></h2>
@@ -57,7 +58,6 @@
 
         <script src="./scripts/script.js"></script>
     </main>
-
 </body>
 
 </html>

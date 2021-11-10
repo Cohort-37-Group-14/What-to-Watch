@@ -7,7 +7,6 @@ app.randomUrl.search = new URLSearchParams({
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
-
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
 app.randomMovie = [];
@@ -21,14 +20,12 @@ app.getRandomNumber = function (min, max, variableArray) {
         app.randomMovieOrder[i] = result;
     }
 }
-
 //Getting 6 different random movies and store data in app.randomMovie 
 app.getRandomSixMovies = () => {
     app.getRandomNumber(0, 249, app.randomMovieOrder);
     fetch(app.randomUrl).then(function (response) {
         return response.json();
     }).then(function (data) {
-        console.log(data);
         for (let i = 0; i < 6; i++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
@@ -41,8 +38,7 @@ app.getRandomSixMovies = () => {
         // If error, =>
     })
 }
-
-// function to display movies
+// Function to display movies
 app.displayRandomMovies = function (movieDataFromApi) {
     //  create variables for the pieces in the DOM that will be created/used
     const movieContainer = document.querySelector('#randonMovieContainer');
@@ -52,7 +48,6 @@ app.displayRandomMovies = function (movieDataFromApi) {
     const rating = document.createElement('p');
     const id = document.createElement('span');
     const plusButton = document.createElement('button');
-
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
@@ -63,7 +58,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     id.textContent = movieDataFromApi.id;
     plusButton.innerHTML = '<i class="fas fa-plus-circle"></i>';
     plusButton.setAttribute('draggable', false);
-
+    plusButton.setAttribute('aria-label', 'Add this movie to your watch list');
     // Append the elements to the right part of the DOM
     movieCard.appendChild(img);
     movieCard.appendChild(title);
@@ -71,7 +66,6 @@ app.displayRandomMovies = function (movieDataFromApi) {
     movieCard.appendChild(id);
     movieCard.appendChild(plusButton);
     movieContainer.appendChild(movieCard);
-
     // Attach the styling classes to each element
     movieCard.classList.add("flex");
     movieCard.classList.add("flexColumn");
@@ -84,8 +78,6 @@ app.displayRandomMovies = function (movieDataFromApi) {
     id.classList.add('zeroOpacity');
     plusButton.classList.add('buttonAddToWatchList');
 }
-
-
 // Drag and drop function for letting users save their favorite movies into watch list
 app.draggingData = '';
 app.dragAndDrop = function () {
@@ -99,18 +91,16 @@ app.dragAndDrop = function () {
             plusButtons[i].style.display = 'none';
             plusButtons[i].style.opacity = '0';
             app.draggingData = this;
-            console.log(this);
             setTimeout(() => {
                 this.style.opacity = '0';
             }, 0);
-            dropped = 1; //Listener is on fire
+            dropped = 1; //Opacity reset listener is on fire
         })
         draggables[i].addEventListener('dragend', function () {
             if (dropped === 1) { // If not dropped into the correct space, the movie card is appearing again
                 this.style.opacity = '1';
                 dropped = 0;
             }
-            // app.draggingData = '';
         })
     }
     droppable.addEventListener('dragenter', function (e) {
@@ -141,7 +131,6 @@ app.specificPopup = function () {
             fetch(app.specificUrl).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data);
                 const titleSelected = document.querySelector('#selectedMovieTittle');
                 const selectedMovieImg= document.querySelector('#selectedMovieImg');
                 const descriptionSelected = document.querySelector('#selectedMovieDescription');
@@ -166,7 +155,6 @@ app.specificPopup = function () {
                     popUpCard.classList.remove("visible");
                     closeButton.remove();
                 });
-
             }).catch(function () {
                 // If error, =>
             })
@@ -175,21 +163,18 @@ app.specificPopup = function () {
 }
 //Plus button shows when movie cards are hovered or focused
 app.plusButtonOnMovieCard = function() {
-    console.log('test start!');
     const movieCards = document.querySelectorAll('.draggingContainer');
     const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     for (let i = 0; i < plusButtons.length; i++) {
         ['mouseenter', 'focusein', 'touchstart'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'block';
-                console.log('show out!', i);
             })
             plusButtons[i].addEventListener('click', (event) => {
                 event.stopPropagation();
                 plusButtons[i].style.display = 'none';
                 plusButtons[i].style.opacity = '0';
                 document.querySelector('#watchListContainer').appendChild(movieCards[i]);
-                console.log('click!');
             })
         })
     }
@@ -197,14 +182,12 @@ app.plusButtonOnMovieCard = function() {
         ['mouseleave', 'focusein', 'touchmove'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'none';
-                console.log('disappear!', i);
             })
         })
     }
 }
 
 app.init = function () {
-
     document.querySelector('#randomMovieButton').addEventListener('click', function () {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
@@ -231,7 +214,6 @@ app.init = function () {
         movieContainer.appendChild(moreMoviesButton);
 
         document.querySelector('.buttonStyling').addEventListener('click', function () {
-            console.log(`CLICK!`);
             document.querySelector('#randonMovieContainer').innerHTML = '';
             app.getRandomSixMovies();
         })
@@ -239,5 +221,3 @@ app.init = function () {
 };
 
 app.init();
-
-
