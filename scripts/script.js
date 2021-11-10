@@ -184,7 +184,8 @@ app.plusButtonOnMovieCard = function() {
                 plusButtons[i].style.display = 'block';
                 console.log('show out!', i);
             })
-            plusButtons[i].addEventListener('click', () => {
+            plusButtons[i].addEventListener('click', (event) => {
+                event.stopPropagation();
                 plusButtons[i].style.display = 'none';
                 plusButtons[i].style.opacity = '0';
                 document.querySelector('#watchListContainer').appendChild(movieCards[i]);
