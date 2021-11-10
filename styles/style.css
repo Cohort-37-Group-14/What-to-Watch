@@ -343,6 +343,7 @@ button:hover {
   border: 4px solid #fad947;
   -webkit-box-shadow: 2px 2px 30px #fad947;
           box-shadow: 2px 2px 30px #fad947;
+  position: relative;
 }
 
 .imageCardStyling {
@@ -546,6 +547,14 @@ body {
     opacity: 1;
   }
 }
+
+.buttonAddToWatchList {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .specificMovieInfo {
   display: none;
 }

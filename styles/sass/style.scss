@@ -131,7 +131,13 @@ body {
 	}
 }
 
-
+//The plus button for movie cards
+.buttonAddToWatchList {
+    display: none;
+    position:absolute;
+    top:0;
+    right: 0;
+}
 
 
 //For stylying other elements, the below sections are temporary hidden
