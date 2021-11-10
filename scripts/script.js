@@ -191,7 +191,8 @@ app.init = function () {
         document.querySelector('h2').classList.add("fadeOut");
         document.querySelector('#randomMovieButton').classList.add("fadeOut");
         document.querySelector('h1').classList.add("fadeOut");
-        document.querySelector('.textContainer').classList.add("fadeOut");
+        document.querySelector('header').classList.add("fadeOut");
+        document.querySelector('#firstTextContainer').classList.add("fadeOut");
         document.querySelector('#watchList').classList.add('fadeIn');
 
         document.querySelector('#leftCurtain').style.left = '-30vw';

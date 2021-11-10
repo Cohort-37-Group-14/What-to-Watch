@@ -25,7 +25,7 @@
         <h1>What to Watch</h1>
     </header>
     <main>
-        <section class="textContainer flex flexColumn alignItemsCenter mainWrapper">
+        <section class="textContainer flex flexColumn alignItemsCenter mainWrapper" id="firstTextContainer">
             <h2>What movie will you watch tonight?</h2>
             <button id="randomMovieButton">Click Here for a Random Movie!</button>
         </section>
@@ -36,7 +36,6 @@
                 <img src="./images/rightCurtain.jpg" alt="right side of opening curtain">
         </section>
         <section class="randomMovieDisplay flex flexColumn" id="randomMovieDisplay">
-            <!-- We can use forEach or other loop function to iterate the data from API and put them into the following div, so I gave this div a specific ID-->
             <div class="randonMovieContainer grid" id="randonMovieContainer">
                 <!-- This section is for when the 6 random movies are generated, they will populate here -->
             </div>
