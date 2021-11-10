@@ -374,6 +374,31 @@ button:hover {
           box-shadow: -6px 6px 15px black;
 }
 
+#specificMovieInfo {
+  position: relative;
+}
+
+.popUpCard {
+  width: 30%;
+  height: 750px;
+  background-color: #590505;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  border-radius: 0.35rem;
+  border: 3px solid black;
+  -webkit-box-shadow: -25px 25px 30px black;
+          box-shadow: -25px 25px 30px black;
+  display: block;
+  position: absolute;
+  bottom: 100px;
+  left: 35%;
+  z-index: 5;
+  overflow-y: scroll;
+}
+
+.imagePopUpCard {
+  width: 200px;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,6 +436,7 @@ body {
 
 .textContainer {
   position: relative;
+  top: 10vh;
   z-index: 2;
 }
 
@@ -547,12 +573,12 @@ body {
     opacity: 1;
   }
 }
-
 .buttonAddToWatchList {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
+  background-color: #a80a0a99;
 }
 
 .specificMovieInfo {

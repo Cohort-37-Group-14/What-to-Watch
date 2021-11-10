@@ -142,13 +142,27 @@ app.specificPopup = function () {
                 return response.json();
             }).then(function (data) {
                 console.log(data);
-                const tittleSelected = document.querySelector('#selectedMovieTittle');
+                const titleSelected = document.querySelector('#selectedMovieTittle');
                 const selectedMovieImg= document.querySelector('#selectedMovieImg');
                 const descriptionSelected = document.querySelector('#selectedMovieDescription');
+                const popUpCard = document.querySelector('.popUpCard');
+                const closeButton = document.createElement('button')
 
-                tittleSelected.textContent = data.fullTitle;
+                titleSelected.textContent = data.fullTitle;
                 selectedMovieImg.src = data.posters.posters[0].link;
                 descriptionSelected.textContent = data.plot;
+                closeButton.textContent = 'Close';
+                closeButton.classList.add('buttonStyling');
+                selectedMovieImg.classList.add('imagePopUpCard');
+
+                popUpCard.appendChild(selectedMovieImg);
+                popUpCard.appendChild(titleSelected);
+                popUpCard.appendChild(descriptionSelected);
+                popUpCard.appendChild(closeButton);
+
+                closeButton.addEventListener('click', function () {
+                    popUpCard.classList.add("specificMovieInfo");
+                });
 
             }).catch(function () {
                 // If error, =>
