@@ -2,9 +2,9 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    // apiKey: 'k_xpdojdru'
+    apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
-    apiKey: 'k_4eg4wtys'
+    // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
 });
 
@@ -36,6 +36,7 @@ app.getRandomSixMovies = () => {
         }
         app.dragAndDrop();
         app.specificPopup();
+        app.plusButtonOnMovieCard();
     }).catch(function () {
         // If error, =>
     })
@@ -90,10 +91,13 @@ app.draggingData = '';
 app.dragAndDrop = function () {
     const draggables = document.getElementsByClassName('draggingContainer');
     const droppable = document.querySelector('#watchList');
+    const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     let dropped = 0; // A listener to check the element is dropped into the correct area
     droppable.classList.remove('hidden');
     for (let i = 0; i < draggables.length; i++) {
         draggables[i].addEventListener('dragstart', function () {
+            plusButtons[i].style.display = 'none';
+            plusButtons[i].style.opacity = '0';
             app.draggingData = this;
             console.log(this);
             setTimeout(() => {
@@ -129,9 +133,9 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
-            // app.specificApiKey = 'k_xpdojdru';
+            app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
-            app.specificApiKey = 'k_4eg4wtys';
+            // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
@@ -154,20 +158,28 @@ app.specificPopup = function () {
 }
 //Plus button shows when movie cards are hovered or focused
 app.plusButtonOnMovieCard = function() {
+    console.log('test start!');
     const movieCards = document.querySelectorAll('.draggingContainer');
     const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     for (let i = 0; i < plusButtons.length; i++) {
-        ['mouseenter', 'focusin', 'touchstart'].forEach((e) => {
+        ['mouseenter', 'focusein', 'touchstart'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'block';
+                console.log('show out!', i);
             })
             plusButtons[i].addEventListener('click', () => {
+                plusButtons[i].style.display = 'none';
+                plusButtons[i].style.opacity = '0';
                 document.querySelector('#watchListContainer').appendChild(movieCards[i]);
+                console.log('click!');
             })
         })
-        ['mouseleave', 'focusout', 'touchend'].forEach((e) => {
+    }
+    for (let i = 0; i < plusButtons.length; i++) {
+        ['mouseleave', 'focusein', 'touchmove'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'none';
+                console.log('disappear!', i);
             })
         })
     }
