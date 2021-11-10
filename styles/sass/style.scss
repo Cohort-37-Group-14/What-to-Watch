@@ -149,3 +149,20 @@ body {
 .specificMovieInfo {
     display:none;
 }
+
+footer {
+    p {
+        font-size: 1.2rem;
+        font-weight: bolder;
+        margin: 0 1vw;
+
+        a {
+            color: $footerLink;
+            text-decoration: none;
+        }
+
+        i {
+            font-size: 1.5rem; 
+        }
+    }
+}
