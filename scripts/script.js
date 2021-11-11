@@ -6,8 +6,8 @@ app.randomUrl.search = new URLSearchParams({
     // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
-    //apiKey:  'k_ya5sqa8y'
-    //apiKey:  'k_0dsq0v17'
+    // apiKey:  'k_ya5sqa8y'
+    // apiKey:  'k_0dsq0v17'
 });
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
@@ -56,6 +56,8 @@ app.displayRandomMovies = function (movieDataFromApi) {
     const rating = document.createElement('p');
     const id = document.createElement('span');
     const plusButton = document.createElement('button');
+    // const watchListEl = document.querySelectorAll('.watchListContainer .draggingContainer'); //! COME BACK TO THIS AREA -------------------------------!
+    // watchListEl.classList.add('watchListItem'); //! COME BACK TO THIS AREA -------------------------------!
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
@@ -122,6 +124,7 @@ app.dragAndDrop = function () {
         app.draggingData.style.opacity = '1';
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
         dropped = 0; // Dropped into the correct space, reset value
+        
     })
 }
 //Getting specific movie info when users click
@@ -209,15 +212,8 @@ app.init = function () {
         document.querySelector('header').classList.add("fadeOut");
         document.querySelector('#firstTextContainer').classList.add("fadeOut");
         document.querySelector('#watchList').classList.add('fadeIn');
-
-        document.querySelector('#leftCurtain').style.left = '-30vw';
-        document.querySelector('#leftCurtain').style.transition = 'left 3s';
-        document.querySelector('#rightCurtain').style.right = '-30vw';
-        document.querySelector('#rightCurtain').style.transition = 'right 3s';
-        document.querySelector('#rightCurtain').style.border = 'black 4px solid';
-        document.querySelector('#rightCurtain').style.boxShadow = '-40px 40px 55px black';
-        document.querySelector('#leftCurtain').style.border = 'black 4px solid';
-        document.querySelector('#leftCurtain').style.boxShadow = '40px 40px 55px black';
+        document.querySelector('#leftCurtain').classList.add('leftCurtainTransition');
+        document.querySelector('#rightCurtain').classList.add('rightCurtainTransition');
 
         app.getRandomSixMovies();
 
