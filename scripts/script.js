@@ -56,8 +56,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     const rating = document.createElement('p');
     const id = document.createElement('span');
     const plusButton = document.createElement('button');
-    // const watchListEl = document.querySelectorAll('.watchListContainer .draggingContainer'); //! COME BACK TO THIS AREA -------------------------------!
-    // watchListEl.classList.add('watchListItem'); //! COME BACK TO THIS AREA -------------------------------!
+
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
