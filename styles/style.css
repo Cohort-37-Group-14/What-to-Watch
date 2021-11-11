@@ -775,3 +775,18 @@ body a {
     margin-top: -600px;
   }
 }
+
+footer p {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 0 1vw;
+}
+
+footer p a {
+  color: #7FDBFF;
+  text-decoration: none;
+}
+
+footer p i {
+  font-size: 1.5rem;
+}
