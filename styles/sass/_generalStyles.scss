@@ -157,6 +157,32 @@ button:hover {
     width: 200px;
 }
 
+footer {
+    position:absolute;
+    bottom:1vh;
+    width: 100%;
+    p {
+        font-size: 1.2rem;
+        font-weight: bolder;
+        margin: 0 1vw;
+        text-align: center;
+
+        a {
+            color: $lightFont;
+            text-decoration: none;
+            text-shadow: 2px -2px 5px #fad947;
+        }
+        a:hover {
+            border-bottom: 2px solid #fffbec;;
+            text-shadow: 2px -2px 5px black;
+        }
+
+        i {
+            font-size: 1.5rem; 
+        }
+    }
+}
+
 .flex {
     display:flex;
 }
