@@ -123,6 +123,9 @@ app.dragAndDrop = function () {
         app.draggingData.style.opacity = '1';
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
         dropped = 0; // Dropped into the correct space, reset value
+        document.querySelector('#watchListContainer div').classList.remove('cardStyling');
+        document.querySelector('#watchListContainer div').classList.remove('draggingContainer');
+        document.querySelector('#watchListContainer div').classList.add('cardInWatchList');
         
     })
 }
@@ -190,6 +193,9 @@ app.plusButtonOnMovieCard = function() {
                 event.stopPropagation();
                 plusButtons[i].style.display = 'none';
                 plusButtons[i].style.opacity = '0';
+                movieCards[i].classList.remove('draggingContainer');
+                movieCards[i].classList.remove('cardStyling');
+                movieCards[i].classList.add('cardInWatchList');
                 document.querySelector('#watchListContainer').appendChild(movieCards[i]);
             })
         })
