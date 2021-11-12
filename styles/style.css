@@ -399,6 +399,30 @@ button:hover {
   width: 200px;
 }
 
+footer {
+  position: absolute;
+  bottom: 1vh;
+  width: 100%;
+}
+footer p {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 0 1vw;
+  text-align: center;
+}
+footer p a {
+  color: #dfe2e6;
+  text-decoration: none;
+  text-shadow: 2px -2px 5px #fad947;
+}
+footer p a:hover {
+  border-bottom: 2px solid #fffbec;
+  text-shadow: 2px -2px 5px black;
+}
+footer p i {
+  font-size: 1.5rem;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -774,19 +798,4 @@ body a {
   .grid {
     margin-top: -600px;
   }
-}
-
-footer p {
-  font-size: 1.2rem;
-  font-weight: bolder;
-  margin: 0 1vw;
-}
-
-footer p a {
-  color: #7FDBFF;
-  text-decoration: none;
-}
-
-footer p i {
-  font-size: 1.5rem;
 }
