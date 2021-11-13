@@ -109,6 +109,8 @@ app.dragAndDrop = function () {
             if (dropped === 1) { // If not dropped into the correct space, the movie card is appearing again
                 this.style.opacity = '1';
                 dropped = 0;
+                plusButtons[i].style.display = 'block';
+                plusButtons[i].style.opacity = '1';
             }
         })
     }
@@ -123,10 +125,12 @@ app.dragAndDrop = function () {
         app.draggingData.style.opacity = '1';
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
         dropped = 0; // Dropped into the correct space, reset value
-        document.querySelector('#watchListContainer div').classList.remove('cardStyling');
-        document.querySelector('#watchListContainer div').classList.remove('draggingContainer');
-        document.querySelector('#watchListContainer div').classList.add('cardInWatchList');
-        
+        const movieInWatchList = document.querySelectorAll('#watchListContainer div');
+        for (let i = 0; i < movieInWatchList.length; i++) {
+            movieInWatchList[i].classList.remove('cardStyling');
+            movieInWatchList[i].classList.remove('draggingContainer');
+            movieInWatchList[i].classList.add('cardInWatchList');
+        }
     })
 }
 //Getting specific movie info when users click
