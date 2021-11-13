@@ -160,13 +160,18 @@ body {
 	}
 }
 
-//The plus button for movie cards
-.buttonAddToWatchList {
+//The plus button for movie cards and remove button for movie in the watch list
+.buttonAddToWatchList,
+.buttonRemoveFromWatchList {
     display: none;
     position:absolute;
     top:0;
     right: 0;
     background-color: #a80a0a99;
+}
+
+.cardInWatchList {
+    position: relative;
 }
 
 //For stylying other elements, the below sections are temporary hidden
