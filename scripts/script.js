@@ -6,8 +6,8 @@ app.randomUrl.search = new URLSearchParams({
     // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
-    apiKey:  'k_ya5sqa8y'
-    // apiKey:  'k_0dsq0v17'
+    // apiKey:  'k_ya5sqa8y'
+    apiKey:  'k_0dsq0v17'
 });
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
@@ -108,8 +108,11 @@ app.dragAndDrop = function () {
         draggables[i].addEventListener('dragend', function () {
             if (dropped === 1) { // If not dropped into the correct space, the movie card is appearing again
                 this.style.opacity = '1';
+                plusButtons[i].style.display = 'block';
+                plusButtons[i].style.opacity = '1';
                 dropped = 0;
-            }
+
+            } 
         })
     }
     droppable.addEventListener('dragenter', function (e) {
@@ -123,10 +126,12 @@ app.dragAndDrop = function () {
         app.draggingData.style.opacity = '1';
         document.querySelector('#watchListContainer').appendChild(app.draggingData);
         dropped = 0; // Dropped into the correct space, reset value
-        document.querySelector('#watchListContainer div').classList.remove('cardStyling');
-        document.querySelector('#watchListContainer div').classList.remove('draggingContainer');
-        document.querySelector('#watchListContainer div').classList.add('cardInWatchList');
-        
+        const movieInWatchList = document.querySelectorAll('#watchListContainer div');
+        for (let i = 0; i < movieInWatchList.length; i++) {
+            movieInWatchList[i].classList.remove('cardStyling');
+            movieInWatchList[i].classList.remove('draggingContainer');
+            movieInWatchList[i].classList.add('cardInWatchList');
+        }
     })
 }
 //Getting specific movie info when users click
@@ -139,8 +144,8 @@ app.specificPopup = function () {
             // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
-            app.specificApiKey =  'k_ya5sqa8y';
-            //app.specificApiKey =  'k_0dsq0v17';
+            // app.specificApiKey =  'k_ya5sqa8y';
+            app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
