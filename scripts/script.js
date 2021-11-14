@@ -10,7 +10,7 @@ app.randomUrl.search = new URLSearchParams({
     // apiKey:  'k_ya5sqa8y'
     // apiKey:  'k_0dsq0v17'
 // For netlify domain:
-    apiKey: 'pk_4j91s9gyunrj9i09j'
+    apiKey: 'pk_9t16efqah2rok8tbg'
 // For GitHub domain: 
     // apiKey: 'pk_oaozdiutd9sm2x6x6'
 });
@@ -158,7 +158,7 @@ app.specificPopup = function () {
             // app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
         // For netlify domain:
-            app.specificApiKey =  'pk_4j91s9gyunrj9i09j'; 
+            app.specificApiKey =  'pk_9t16efqah2rok8tbg'; 
         // For GitHub domain:
             // app.specificApiKey =  'pk_oaozdiutd9sm2x6x6';  
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
