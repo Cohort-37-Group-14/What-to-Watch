@@ -201,7 +201,7 @@ body {
         width: 18%;
     }
     .grid {
-        margin-top: -640px;
+        margin-top: -700px;
     }
     .leftCurtainTransition {
         left: -35vw;
@@ -433,6 +433,9 @@ body {
     .popUpCard {
         width: 80%;
         left:10%;
+    }
+    .grid {
+        margin-top: -500px;
     }
 }
 @media only screen and (max-width: 380px) {
