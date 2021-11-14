@@ -2,13 +2,17 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
+// API keys for web establishments and tests:
     // apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
     // apiKey:  'k_ya5sqa8y'
     // apiKey:  'k_0dsq0v17'
-    apiKey: 'pk_4j91s9gyunrj9i09j'
+// For netlify domain:
+    // apiKey: 'pk_4j91s9gyunrj9i09j'
+// For GitHub domain: 
+    apiKey: 'pk_oaozdiutd9sm2x6x6'
 });
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
@@ -146,13 +150,17 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
+        // API keys for web establishments and tests:
             // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey =  'k_ya5sqa8y';
             // app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
-            app.specificApiKey =  'pk_4j91s9gyunrj9i09j'; 
+        // For netlify domain:
+            // app.specificApiKey =  'pk_4j91s9gyunrj9i09j'; 
+        // For GitHub domain:
+            app.specificApiKey =  'pk_oaozdiutd9sm2x6x6';  
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
                 if (response.ok) {
