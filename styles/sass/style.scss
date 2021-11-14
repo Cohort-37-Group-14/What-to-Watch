@@ -22,8 +22,6 @@ body {
     margin-right: 23%;
 }
 
-
-
 .textContainer {
     position: relative;
     top: 10vh;
@@ -134,12 +132,13 @@ body {
     box-shadow: -5px -5px 15px #fad947;
     background-color:#26282b90;
     flex-wrap: wrap;
-    height: 13vh;
+    display: flex;
+    height: 11vh;
     width: 20vw;
     margin: 1%;
     justify-content: center;
     img {
-        width: 4vw;
+        width: 3vw;
     }
 
     h3 {
@@ -185,7 +184,11 @@ body {
     display:none;
 }
 
-
+.largeDisplayWrapper {
+    width: 100%;
+    max-width: 3000px;
+    margin: 0 auto;
+}
 
 // Media Queries!:
 // Width changes:
@@ -438,17 +441,20 @@ body {
 }
 
 // Height changes:
+@media only screen and (max-width: 1700px) and (max-height: 800px) {
+    .grid {
+        margin-top: -580px;
+    }
+
+    body {
+        height: 140vh;
+    }
+}
 @media only screen and (max-width: 768px) and (max-height: 1100px){
     body {
         height: 300vh;
     }
 }
-@media only screen and (max-width: 768px) and (max-height: 950px){
-    body {
-        height: 300vh;
-    }
-}
-
 @media only screen and (max-width: 768px) and (max-height: 850px) {
     body {
         height: 320vh;
