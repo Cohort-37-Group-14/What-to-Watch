@@ -27,14 +27,12 @@ app.getRandomNumber = function (min, max, variableArray) {
 app.getRandomSixMovies = () => {
     app.getRandomNumber(0, 249, app.randomMovieOrder);
     fetch(app.randomUrl).then(function (response) {
-        console.log('response', response);
         if (response.ok) {
             return response.json();
           } else {
             alert("Something went wrong in API call!");
           }
     }).then(function (data) {
-        console.log('data', data);
         for (let i = 0; i < 6; i++) {
             let order = app.randomMovieOrder[i]
             app.randomMovie[i] = data.items[order - 1];
@@ -57,6 +55,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     const rating = document.createElement('p');
     const id = document.createElement('span');
     const plusButton = document.createElement('button');
+    const removeButton = document.createElement('button');
 
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
@@ -66,15 +65,19 @@ app.displayRandomMovies = function (movieDataFromApi) {
     movieCard.setAttribute('draggable', true); // Set this div can be draggable
     img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
     id.textContent = movieDataFromApi.id;
-    plusButton.innerHTML = '<i class="fas fa-plus-circle"></i>';
+    plusButton.innerHTML = '<i class="fas fa-folder-plus"></i>';
     plusButton.setAttribute('draggable', false);
     plusButton.setAttribute('aria-label', 'Add this movie to your watch list');
+    removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    removeButton.setAttribute('draggable', false);
+    removeButton.setAttribute('aria-label', 'Remove this movie from your watch list');
     // Append the elements to the right part of the DOM
     movieCard.appendChild(img);
     movieCard.appendChild(title);
     movieCard.appendChild(rating);
     movieCard.appendChild(id);
     movieCard.appendChild(plusButton);
+    movieCard.appendChild(removeButton);
     movieContainer.appendChild(movieCard);
     // Attach the styling classes to each element
     movieCard.classList.add("flex");
@@ -87,6 +90,7 @@ app.displayRandomMovies = function (movieDataFromApi) {
     movieCard.classList.add('draggingContainer'); //Add a class name for this div for dragging function
     id.classList.add('zeroOpacity');
     plusButton.classList.add('buttonAddToWatchList');
+    removeButton.classList.add('buttonRemoveFromWatchList');
 }
 // Drag and drop function for letting users save their favorite movies into watch list
 app.draggingData = '';
@@ -131,6 +135,7 @@ app.dragAndDrop = function () {
             movieInWatchList[i].classList.remove('cardStyling');
             movieInWatchList[i].classList.remove('draggingContainer');
             movieInWatchList[i].classList.add('cardInWatchList');
+            app.removeButtonOnMovieCard();
         }
     })
 }
@@ -193,7 +198,7 @@ app.plusButtonOnMovieCard = function() {
     const movieCards = document.querySelectorAll('.draggingContainer');
     const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     for (let i = 0; i < plusButtons.length; i++) {
-        ['mouseenter', 'focusein', 'touchstart'].forEach((e) => {
+        ['mouseenter', 'focusin', 'touchstart'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'block';
             })
@@ -205,13 +210,37 @@ app.plusButtonOnMovieCard = function() {
                 movieCards[i].classList.remove('cardStyling');
                 movieCards[i].classList.add('cardInWatchList');
                 document.querySelector('#watchListContainer').appendChild(movieCards[i]);
+                app.removeButtonOnMovieCard();
             })
         })
     }
     for (let i = 0; i < plusButtons.length; i++) {
-        ['mouseleave', 'focusein', 'touchmove'].forEach((e) => {
+        ['mouseleave', 'focusout', 'touchmove'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'none';
+            })
+        })
+    }
+}
+//Remove button shows movie cards are hovered or focused
+app.removeButtonOnMovieCard = function() {
+    const moviesInWatchList = document.querySelectorAll('.cardInWatchList');
+    const removeButtons = document.querySelectorAll('.cardInWatchList .buttonRemoveFromWatchList');
+    for (let i = 0; i < moviesInWatchList.length; i++) {
+        ['mouseenter', 'focusin', 'touchstart'].forEach((e) => {
+            moviesInWatchList[i].addEventListener(e, function () {
+                removeButtons[i].style.display = 'block';
+            })
+            removeButtons[i].addEventListener('click', (event) => {
+                event.stopPropagation();
+                moviesInWatchList[i].style.display = 'none';
+            })
+        })
+    }
+    for (let i = 0; i < moviesInWatchList.length; i++) {
+        ['mouseleave', 'focusout', 'touchmove'].forEach((e) => {
+            moviesInWatchList[i].addEventListener(e, function () {
+                removeButtons[i].style.display = 'none';
             })
         })
     }
@@ -238,6 +267,7 @@ app.init = function () {
 
         document.querySelector('.buttonStyling').addEventListener('click', function () {
             document.querySelector('#randonMovieContainer').innerHTML = '';
+
             app.getRandomSixMovies();
         })
     });
