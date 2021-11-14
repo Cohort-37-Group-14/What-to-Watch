@@ -5,7 +5,8 @@ body {
     background-color: #590505 ;
     background-image: url(../images/backgroundCurtain.png);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
+    background-attachment: fixed;
     background-size: cover;
     height: 110vh;
     position:relative;
@@ -134,12 +135,15 @@ body {
     height: 13vh;
     width: 20vw;
     margin: 1%;
+    justify-content: center;
     img {
-        width: 3vw;
+        width: 4vw;
     }
 
     h3 {
         font-size: 1rem;
+        margin-top: 0;
+        width: calc(100% - 4vw);
     }
 
 }
@@ -226,9 +230,13 @@ body {
         width: 130px;
     }
 }
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1280px) {
     .grid {
         margin-top: -718px;
+    }
+
+    .cardStyling {
+        height: 340px;
     }
 }
 @media only screen and (max-width: 1150px) {
@@ -257,8 +265,24 @@ body {
     }
     .popUpCard {
         width: 50%;
-        bottom:20vh;
-        left:25%;
+        position: fixed;
+        top: 25vh;
+        left: calc(50vw - 25%);
+    }
+    .randomMovieDisplay {
+        margin-top: 10vh;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    header {
+        margin-top: 20vh;
+    }
+    h1 {
+        font-size: 3.8rem;
+        padding: 1.0rem;
+    }
+    h2 {
+        font-size: 3rem;
     }
 }
 @media only screen and (max-width: 950px) {
@@ -271,6 +295,16 @@ body {
     }
 }
 @media only screen and (max-width: 850px) {
+    header {
+        margin-top: 25vh;
+    }
+    h1 {
+        font-size: 3rem;
+        padding: 0.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
     .watchList {
         width: 20%;
     }
@@ -281,8 +315,8 @@ body {
 }
 @media only screen and (max-width: 768px) {
     h1 {
-        font-size: 4.0rem;
-        padding: 1.0rem;
+        font-size: 2.5rem;
+        padding: 0.5rem;
     }
     
     h2 {
@@ -333,21 +367,38 @@ body {
     
     }
     .popUpCard {
-        bottom:120vh;
+        top: 20vh;
+    }
+    .cardStyling{
+        margin: 0 auto;
     }
 }
 @media only screen and (max-width: 600px) {
+    header {
+        margin-top: 20vh;
+    }
+    h1 {
+        font-size: 2rem;
+        padding: 0.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
     .grid {
         margin-top: -950px;
     }
 }
 @media only screen and (max-width: 500px) {
+    header {
+        margin-top: 10vh;
+    }
     h1 {
-        font-size: 3.2rem;
+        padding: 0.3rem 2rem;
     }
     
     h2 {
-        font-size: 2.0rem;
+        font-size: 1rem;
     }
     button {
         font-size: 0.9rem;
@@ -357,6 +408,9 @@ body {
     }
     .curtain {
         display: none;
+    }
+    .popUpCard {
+        top: 10vh;
     }
 
 }
@@ -368,11 +422,11 @@ body {
 }
 @media only screen and (max-width: 380px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
     
     h2 {
-        font-size: 1.6rem;
+        padding: 0.3rem 1rem;
     }
     .grid {
         margin-left: 20px;
