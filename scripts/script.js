@@ -5,12 +5,12 @@ app.randomUrl.search = new URLSearchParams({
 // API keys for web establishments and tests:
     // apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
-    // apiKey: 'k_4eg4wtys'
+    apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
     // apiKey:  'k_ya5sqa8y'
     // apiKey:  'k_0dsq0v17'
 // For netlify domain:
-    apiKey: 'pk_9t16efqah2rok8tbg'
+    // apiKey: 'pk_9t16efqah2rok8tbg'
 // For GitHub domain: 
     // apiKey: 'pk_07aylup2lutbytafc'
 });
@@ -153,7 +153,7 @@ app.specificPopup = function () {
         // API keys for web establishments and tests:
             // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
-            // app.specificApiKey = 'k_4eg4wtys';
+            app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey =  'k_ya5sqa8y';
             // app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';

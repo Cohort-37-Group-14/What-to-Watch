@@ -16,8 +16,12 @@ body {
         color:#26282b00;
     }
 }
-
 .mainWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper {
     margin-left: 23%;
     margin-right: 23%;
 }
@@ -279,8 +283,8 @@ body {
     }
 }
 @media only screen and (max-width: 1024px) {
-    header {
-        margin-top: 20vh;
+    .mainWrapper {
+        margin: 20vh auto 0;
     }
     h1 {
         font-size: 3.8rem;
@@ -300,8 +304,8 @@ body {
     }
 }
 @media only screen and (max-width: 850px) {
-    header {
-        margin-top: 25vh;
+    .mainWrapper {
+        margin: 25vh auto 0;
     }
     h1 {
         font-size: 3rem;
@@ -379,8 +383,8 @@ body {
     }
 }
 @media only screen and (max-width: 600px) {
-    header {
-        margin-top: 20vh;
+    .mainWrapper {
+        margin: 20vh auto 0;
     }
     h1 {
         font-size: 2rem;
@@ -395,8 +399,8 @@ body {
     }
 }
 @media only screen and (max-width: 500px) {
-    header {
-        margin-top: 10vh;
+    .mainWrapper {
+        margin: 10vh auto 0;
     }
     h1 {
         padding: 0.3rem 2rem;
@@ -428,6 +432,7 @@ body {
 @media only screen and (max-width: 380px) {
     h1 {
         font-size: 1.5rem;
+        padding: 0.3rem 2.5rem;
     }
     
     h2 {
