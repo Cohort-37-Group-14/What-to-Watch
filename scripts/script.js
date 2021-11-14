@@ -196,7 +196,7 @@ app.plusButtonOnMovieCard = function() {
     const movieCards = document.querySelectorAll('.draggingContainer');
     const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     for (let i = 0; i < plusButtons.length; i++) {
-        ['mouseenter', 'focusein', 'touchstart'].forEach((e) => {
+        ['mouseenter', 'focusin', 'touchstart'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'block';
             })
@@ -213,7 +213,7 @@ app.plusButtonOnMovieCard = function() {
         })
     }
     for (let i = 0; i < plusButtons.length; i++) {
-        ['mouseleave', 'focusein', 'touchmove'].forEach((e) => {
+        ['mouseleave', 'focusout', 'touchmove'].forEach((e) => {
             movieCards[i].addEventListener(e, function () {
                 plusButtons[i].style.display = 'none';
             })
@@ -225,7 +225,7 @@ app.removeButtonOnMovieCard = function() {
     const moviesInWatchList = document.querySelectorAll('.cardInWatchList');
     const removeButtons = document.querySelectorAll('.cardInWatchList .buttonRemoveFromWatchList');
     for (let i = 0; i < moviesInWatchList.length; i++) {
-        ['mouseenter', 'focusein', 'touchstart'].forEach((e) => {
+        ['mouseenter', 'focusin', 'touchstart'].forEach((e) => {
             moviesInWatchList[i].addEventListener(e, function () {
                 removeButtons[i].style.display = 'block';
             })
@@ -236,7 +236,7 @@ app.removeButtonOnMovieCard = function() {
         })
     }
     for (let i = 0; i < moviesInWatchList.length; i++) {
-        ['mouseleave', 'focusein', 'touchmove'].forEach((e) => {
+        ['mouseleave', 'focusout', 'touchmove'].forEach((e) => {
             moviesInWatchList[i].addEventListener(e, function () {
                 removeButtons[i].style.display = 'none';
             })
