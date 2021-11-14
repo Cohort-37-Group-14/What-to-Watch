@@ -2,10 +2,10 @@ const app = {};
 
 app.randomUrl = new URL('https://imdb-api.com/en/API/Top250Movies/');
 app.randomUrl.search = new URLSearchParams({
-    apiKey: 'k_xpdojdru'
+    // apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
     // apiKey: 'k_4eg4wtys'
-    // apiKey: 'k_3349nupk'
+    apiKey: 'k_3349nupk'
     // apiKey:  'k_ya5sqa8y'
     // apiKey:  'k_0dsq0v17'
 });
@@ -64,10 +64,10 @@ app.displayRandomMovies = function (movieDataFromApi) {
     movieCard.setAttribute('draggable', true); // Set this div can be draggable
     img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
     id.textContent = movieDataFromApi.id;
-    plusButton.innerHTML = '<i class="fas fa-plus-circle"></i>';
+    plusButton.innerHTML = '<i class="fas fa-folder-plus"></i>';
     plusButton.setAttribute('draggable', false);
     plusButton.setAttribute('aria-label', 'Add this movie to your watch list');
-    removeButton.innerHTML = '<i class="fas fa-minus-circle"></i>';
+    removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     removeButton.setAttribute('draggable', false);
     removeButton.setAttribute('aria-label', 'Remove this movie from your watch list');
     // Append the elements to the right part of the DOM
@@ -145,12 +145,12 @@ app.specificPopup = function () {
         popups[i].addEventListener('click', function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
-            app.specificApiKey = 'k_xpdojdru';
+            // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey =  'k_ya5sqa8y';
             // app.specificApiKey =  'k_0dsq0v17';
-            // app.specificApiKey = 'k_3349nupk';
+            app.specificApiKey = 'k_3349nupk';
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
                 if (response.ok) {
@@ -265,7 +265,7 @@ app.init = function () {
 
         document.querySelector('.buttonStyling').addEventListener('click', function () {
             document.querySelector('#randonMovieContainer').innerHTML = '';
-            
+
             app.getRandomSixMovies();
         })
     });
