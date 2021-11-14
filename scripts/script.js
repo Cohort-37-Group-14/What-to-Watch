@@ -5,10 +5,10 @@ app.randomUrl.search = new URLSearchParams({
 // API keys for web establishments and tests:
     // apiKey: 'k_xpdojdru'
     // apiKey: 'k_jsfbzbhz'
-    apiKey: 'k_4eg4wtys'
+    // apiKey: 'k_4eg4wtys'
     // apiKey: 'k_3349nupk'
     // apiKey:  'k_ya5sqa8y'
-    // apiKey:  'k_0dsq0v17'
+    apiKey:  'k_0dsq0v17'
 // For netlify domain:
     // apiKey: 'pk_9t16efqah2rok8tbg'
 // For GitHub domain: 
@@ -153,12 +153,12 @@ app.specificPopup = function () {
         // API keys for web establishments and tests:
             // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
-            app.specificApiKey = 'k_4eg4wtys';
+            // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey =  'k_ya5sqa8y';
-            // app.specificApiKey =  'k_0dsq0v17';
+            app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
         // For netlify domain:
-            app.specificApiKey =  'pk_9t16efqah2rok8tbg'; 
+            // app.specificApiKey =  'pk_9t16efqah2rok8tbg'; 
         // For GitHub domain:
             // app.specificApiKey =  'pk_07aylup2lutbytafc';  
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
