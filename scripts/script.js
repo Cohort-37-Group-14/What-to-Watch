@@ -151,14 +151,14 @@ app.specificPopup = function () {
             document.querySelector('#specificMovieInfo').style.display = 'block';
             const id = this.childNodes[3].innerText;
         // API keys for web establishments and tests:
-            app.specificApiKey = 'k_xpdojdru';
+            // app.specificApiKey = 'k_xpdojdru';
             // app.specificApiKey = 'k_jsfbzbhz';
             // app.specificApiKey = 'k_4eg4wtys';
             // app.specificApiKey =  'k_ya5sqa8y';
             // app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
         // For netlify domain:
-            app.specificApiKey =  'pk_9t16efqah2rok8tbg'; 
+            app.specificApiKey = 'pk_9t16efqah2rok8tbg'; 
         // For GitHub domain:
             // app.specificApiKey =  'pk_07aylup2lutbytafc';  
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
