@@ -242,13 +242,13 @@ html {
 h1 {
   font-family: 'Italiana', serif;
   font-weight: 400;
-  font-size: 5.0rem;
+  font-size: 4.7rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: #dfe2e6;
   text-shadow: 2px -2px 5px #fad947;
-  padding: 0.8rem;
+  padding: 1rem;
   margin: 1rem auto;
   background-color: #590505;
   border-radius: 0.85rem;
@@ -743,7 +743,7 @@ body a {
     margin-top: -700px;
   }
   .cardStyling {
-    height: 340px;
+    height: 380px;
   }
 }
 
@@ -786,7 +786,10 @@ body a {
 
 @media only screen and (max-width: 1024px) {
   .mainWrapper {
-    margin: 20vh auto 0;
+    margin: 0 auto;
+  }
+  .mainTittle {
+    margin-top: 20vh;
   }
   h1 {
     font-size: 3.8rem;
@@ -812,7 +815,10 @@ body a {
 
 @media only screen and (max-width: 850px) {
   .mainWrapper {
-    margin: 25vh auto 0;
+    margin: 0 auto;
+  }
+  .mainTittle {
+    margin-top: 25vh;
   }
   h1 {
     font-size: 3rem;
@@ -899,7 +905,10 @@ body a {
 
 @media only screen and (max-width: 600px) {
   .mainWrapper {
-    margin: 20vh auto 0;
+    margin: 0 auto;
+  }
+  .mainTittle {
+    margin-top: 20vh;
   }
   h1 {
     font-size: 2rem;
@@ -915,7 +924,10 @@ body a {
 
 @media only screen and (max-width: 500px) {
   .mainWrapper {
-    margin: 10vh auto 0;
+    margin: 0 auto;
+  }
+  .mainTittle {
+    margin-top: 10vh;
   }
   h1 {
     padding: 0.3rem 2rem;

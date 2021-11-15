@@ -3,10 +3,12 @@
     
 Juno web dev bootcamp cohort#37 project 1: https://cohort-37-group-14.github.io/What-to-Watch/ or https://what-to-watch-juno.netlify.app/        
 
-![WTW-main-page](https://user-images.githubusercontent.com/84819219/141668645-a1751f5a-e641-42da-8528-b41e6df50434.png)    
+![WTW-0](https://user-images.githubusercontent.com/84819219/141720814-756c2716-1e3c-448a-a8dd-d131f5ac65fa.png)      
     
-![WTW-inner-page](https://user-images.githubusercontent.com/84819219/141668655-a2e34d20-0021-4207-b674-dce2a177feed.png)    
-
+![WTW-1](https://user-images.githubusercontent.com/84819219/141720829-21ea779d-e1a7-4d3d-a7c4-a5cfd34dcad5.png)      
+    
+![WTW-2](https://user-images.githubusercontent.com/84819219/141720857-12fd1764-2c86-4c53-890c-c86eb283f165.png)    
+    
 ### About the application    
 **Generating Random Movie**: You can add a movie in your watch list by dragging then dropping it to the watch list region or hovering on the movie card then clicking the "plus button". 
     

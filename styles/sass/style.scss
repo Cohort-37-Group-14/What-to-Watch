@@ -245,7 +245,7 @@ body {
     }
 
     .cardStyling {
-        height: 340px;
+        height: 380px;
     }
 }
 @media only screen and (max-width: 1150px) {
@@ -284,7 +284,10 @@ body {
 }
 @media only screen and (max-width: 1024px) {
     .mainWrapper {
-        margin: 20vh auto 0;
+        margin: 0 auto;
+    }
+    .mainTittle {
+        margin-top: 20vh
     }
     h1 {
         font-size: 3.8rem;
@@ -308,7 +311,10 @@ body {
 }
 @media only screen and (max-width: 850px) {
     .mainWrapper {
-        margin: 25vh auto 0;
+        margin: 0 auto;
+    }
+    .mainTittle {
+        margin-top: 25vh;
     }
     h1 {
         font-size: 3rem;
@@ -390,7 +396,10 @@ body {
 }
 @media only screen and (max-width: 600px) {
     .mainWrapper {
-        margin: 20vh auto 0;
+        margin: 0 auto ;
+    }
+    .mainTittle {
+        margin-top: 20vh;
     }
     h1 {
         font-size: 2rem;
@@ -406,7 +415,10 @@ body {
 }
 @media only screen and (max-width: 500px) {
     .mainWrapper {
-        margin: 10vh auto 0;
+        margin: 0 auto;
+    }
+    .mainTittle {
+        margin-top: 10vh;
     }
     h1 {
         padding: 0.3rem 2rem;
