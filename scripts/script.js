@@ -10,9 +10,9 @@ app.randomUrl.search = new URLSearchParams({
     // apiKey:  'k_ya5sqa8y'
     // apiKey:  'k_0dsq0v17'
 // For netlify domain:
-    apiKey: 'pk_9t16efqah2rok8tbg'
+    // apiKey: 'pk_9t16efqah2rok8tbg'
 // For GitHub domain: 
-    // apiKey: 'pk_07aylup2lutbytafc'
+    apiKey: 'pk_07aylup2lutbytafc'
 });
 //Variables to storing the random numbers for getting random movies
 app.randomMovieOrder = [movieOrder1 = null, movieOrder2 = null, movieOrder3 = null, movieOrder4 = null, movieOrder5 = null, movieOrder6 = null];
@@ -64,8 +64,8 @@ app.displayRandomMovies = function (movieDataFromApi) {
     // Set the values/content/attribute for the variables
     img.src = movieDataFromApi.image;
     img.alt = `Poster for: ${movieDataFromApi.title} movie`;
-    title.textContent = movieDataFromApi.fullTitle.length < 25 ? `${movieDataFromApi.fullTitle} ` : `${movieDataFromApi.fullTitle.slice(0, 23)}...`;
-    rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10`
+    title.textContent = movieDataFromApi.fullTitle.length < 25 ? `${movieDataFromApi.fullTitle} ` : `${movieDataFromApi.fullTitle.slice(0, 23)}...`; //Avoid the text content is too long
+    rating.textContent = `Rating: ${movieDataFromApi.imDbRating}/10` // ten-point system for movie rating
     movieCard.setAttribute('draggable', true); // Set this div can be draggable
     img.setAttribute('draggable', false);  //Set this img cannot be draggable and only can drag the whole div
     id.textContent = movieDataFromApi.id;
@@ -103,7 +103,7 @@ app.dragAndDrop = function () {
     const droppable = document.querySelector('#watchList');
     const plusButtons = document.querySelectorAll('.buttonAddToWatchList');
     let dropped = 0; // A listener to check the element is dropped into the correct area
-    droppable.classList.remove('hidden');
+    droppable.classList.remove('hidden'); //Showing WatchList Logo out
     for (let i = 0; i < draggables.length; i++) {
         draggables[i].addEventListener('dragstart', function () {
             plusButtons[i].style.display = 'none';
@@ -158,9 +158,9 @@ app.specificPopup = function () {
             // app.specificApiKey =  'k_0dsq0v17';
             // app.specificApiKey = 'k_3349nupk';
         // For netlify domain:
-            app.specificApiKey = 'pk_9t16efqah2rok8tbg'; 
+            // app.specificApiKey = 'pk_9t16efqah2rok8tbg'; 
         // For GitHub domain:
-            // app.specificApiKey =  'pk_07aylup2lutbytafc';  
+            app.specificApiKey =  'pk_07aylup2lutbytafc';  
             app.specificUrl = `https://imdb-api.com/en/API/Title/?apiKey=${app.specificApiKey}&id=${id}&options=FullCast%Posters%Trailer%Ratings`;
             fetch(app.specificUrl).then(function (response) {
                 if (response.ok) {
